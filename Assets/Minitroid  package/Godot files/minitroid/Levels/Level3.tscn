@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Levels/assets/bg1.png" type="Texture" id=1]
+[ext_resource path="res://Levels/assets/tileset-1.tres" type="TileSet" id=2]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/assets/exit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/Level4.tscn" type="PackedScene" id=5]
+[ext_resource path="res://enemies/Fish/Fish.tscn" type="PackedScene" id=6]
+[ext_resource path="res://VanishingBlock/Vanishing-Block.tscn" type="PackedScene" id=7]
+[ext_resource path="res://enemies/Slime/Slime.tscn" type="PackedScene" id=8]
+[ext_resource path="res://star/Star-Spawner.tscn" type="PackedScene" id=9]
+
+[node name="Level1" type="Node2D"]
+
+[node name="BG" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 2
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 19, 0, 0, 20, 4, 0, 21, 4, 0, 22, 4, 0, 23, 4, 0, 24, 4, 0, 25, 4, 0, 26, 4, 0, 65555, 0, 0, 65556, 4, 0, 65557, 4, 0, 65558, 4, 0, 65559, 4, 0, 65560, 4, 0, 65561, 4, 0, 65562, 4, 0, 131091, 0, 0, 131092, 4, 0, 131093, 4, 0, 131094, 4, 0, 131095, 4, 0, 131096, 4, 0, 131097, 4, 0, 131098, 4, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 196627, 0, 0, 196628, 0, 0, 196629, 0, 0, 196630, 0, 0, 196631, 0, 0, 196632, 0, 0, 196633, 4, 0, 196634, 4, 0, 262168, 0, 0, 262169, 4, 0, 262170, 4, 0, 393215, 0, 0, 327704, 0, 0, 327705, 4, 0, 327706, 4, 0, 458751, 0, 0, 393240, 0, 0, 393241, 4, 0, 393242, 4, 0, 524287, 0, 0, 458776, 0, 0, 458777, 4, 0, 458778, 4, 0, 589823, 0, 0, 524312, 0, 0, 524313, 0, 0, 524314, 0, 0, 655359, 0, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 720895, 0, 0, 655367, 1, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 3, 0, 655373, 1, 0, 655374, 3, 0, 655375, 1, 0, 655376, 1, 0, 655377, 1, 0, 655378, 1, 0, 655379, 1, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720903, 3, 0, 720904, 1, 0, 720905, 3, 0, 720908, 3, 0, 720909, 1, 0, 720910, 3, 0, 720913, 3, 0, 720914, 1, 0, 720915, 3, 0, 720918, 0, 0, 720919, 0, 0, 720920, 0, 0, 720921, 0, 0, 720922, 0, 0, 786432, 4, 0, 786433, 4, 0, 786434, 4, 0, 786435, 4, 0, 786436, 0, 0, 786437, 5, 0, 786438, 5, 0, 786439, 3, 0, 786440, 1, 0, 786441, 3, 0, 786442, 5, 0, 786443, 5, 0, 786444, 3, 0, 786445, 1, 0, 786446, 3, 0, 786447, 5, 0, 786448, 5, 0, 786449, 3, 0, 786450, 1, 0, 786451, 3, 0, 786452, 5, 0, 786453, 5, 0, 786454, 0, 0, 786455, 4, 0, 786456, 4, 0, 786457, 4, 0, 786458, 4, 0, 851968, 4, 0, 851969, 4, 0, 851970, 4, 0, 851971, 4, 0, 851972, 0, 0, 851973, 4, 0, 851974, 4, 0, 851975, 3, 0, 851976, 1, 0, 851977, 3, 0, 851978, 4, 0, 851979, 4, 0, 851980, 3, 0, 851981, 1, 0, 851982, 3, 0, 851983, 4, 0, 851984, 4, 0, 851985, 3, 0, 851986, 1, 0, 851987, 3, 0, 851988, 4, 0, 851989, 4, 0, 851990, 0, 0, 851991, 4, 0, 851992, 4, 0, 851993, 4, 0, 851994, 4, 0, 917504, 4, 0, 917505, 4, 0, 917506, 4, 0, 917507, 4, 0, 917508, 0, 0, 917509, 4, 0, 917510, 4, 0, 917511, 3, 0, 917512, 1, 0, 917513, 3, 0, 917514, 4, 0, 917515, 4, 0, 917516, 3, 0, 917517, 1, 0, 917518, 3, 0, 917519, 4, 0, 917520, 4, 0, 917521, 3, 0, 917522, 1, 0, 917523, 3, 0, 917524, 4, 0, 917525, 4, 0, 917526, 0, 0, 917527, 4, 0, 917528, 4, 0, 917529, 4, 0, 917530, 4, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 7.093, 164.176 )
+
+[node name="Exit" parent="." instance=ExtResource( 4 )]
+position = Vector2( 441.942, 116.849 )
+next_scene = ExtResource( 5 )
+
+[node name="Fish" parent="." instance=ExtResource( 6 )]
+position = Vector2( 174.125, 319.613 )
+
+[node name="Fish3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 335.876, 247.488 )
+
+[node name="Vanishing-Block" parent="." instance=ExtResource( 7 )]
+position = Vector2( 144, 112 )
+
+[node name="Vanishing-Block2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 112, 80 )
+
+[node name="Slime" parent="." instance=ExtResource( 8 )]
+position = Vector2( 200.048, 40.5754 )
+
+[node name="Star-Spawner" parent="." instance=ExtResource( 9 )]
+position = Vector2( 256, 32 )
+starId = "s3"

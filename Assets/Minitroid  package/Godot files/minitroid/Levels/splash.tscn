@@ -1,0 +1,124 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Levels/splash.gd" type="Script" id=1]
+[ext_resource path="res://Levels/assets/instructions3.png" type="Texture" id=2]
+[ext_resource path="res://Levels/assets/instructions2.png" type="Texture" id=3]
+[ext_resource path="res://Levels/assets/instructions.png" type="Texture" id=4]
+[ext_resource path="res://Levels/assets/tileset-1.tres" type="TileSet" id=5]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Levels/assets/exit.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Levels/Level1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://break-text/Break-Text.tscn" type="PackedScene" id=9]
+
+[node name="Splash" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="CREDITS" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="INSTRUCTIONS2" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="INSTRUCTIONS" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+centered = false
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 2
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 393215, 0, 0, 458751, 0, 0, 524287, 0, 0, 589823, 0, 0, 655359, 0, 0, 720895, 0, 0, 786431, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 720916, 0, 0, 720917, 0, 0, 720918, 0, 0, 720919, 0, 0, 851967, 0, 0, 786436, 0, 0, 786455, 0, 0, 851968, 0, 0, 851969, 0, 0, 851970, 0, 0, 851971, 0, 0, 851972, 0, 0, 851991, 0, 0, 851992, 0, 0, 851993, 0, 0, 851994, 0, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 16.1715, 192.793 )
+
+[node name="Exit" parent="." instance=ExtResource( 7 )]
+position = Vector2( 444.268, 147.752 )
+next_scene = ExtResource( 8 )
+
+[node name="Title" type="Node" parent="."]
+
+[node name="Break-Text" parent="Title" instance=ExtResource( 9 )]
+editor/display_folded = true
+position = Vector2( 80, 135.425 )
+
+[node name="Break-Text2" parent="Title" instance=ExtResource( 9 )]
+editor/display_folded = true
+position = Vector2( 112, 135.425 )
+
+[node name="SpriteText" parent="Title/Break-Text2" index="0"]
+region_rect = Rect2( 16, 0, 16, 16 )
+
+[node name="Break-Text3" parent="Title" instance=ExtResource( 9 )]
+editor/display_folded = true
+position = Vector2( 144, 135.425 )
+
+[node name="SpriteText" parent="Title/Break-Text3" index="0"]
+region_rect = Rect2( 32, 0, 16, 16 )
+
+[node name="Break-Text4" parent="Title" instance=ExtResource( 9 )]
+editor/display_folded = true
+position = Vector2( 176, 135.425 )
+
+[node name="SpriteText" parent="Title/Break-Text4" index="0"]
+region_rect = Rect2( 16, 0, 16, 16 )
+
+[node name="Break-Text5" parent="Title" instance=ExtResource( 9 )]
+editor/display_folded = true
+position = Vector2( 208, 135.425 )
+
+[node name="SpriteText" parent="Title/Break-Text5" index="0"]
+region_rect = Rect2( 64, 0, 16, 16 )
+
+[node name="Break-Text6" parent="Title" instance=ExtResource( 9 )]
+editor/display_folded = true
+position = Vector2( 240, 135.425 )
+
+[node name="SpriteText" parent="Title/Break-Text6" index="0"]
+region_rect = Rect2( 80, 0, 16, 16 )
+
+[node name="Break-Text7" parent="Title" instance=ExtResource( 9 )]
+editor/display_folded = true
+position = Vector2( 272, 135.425 )
+
+[node name="SpriteText" parent="Title/Break-Text7" index="0"]
+region_rect = Rect2( 96, 0, 16, 16 )
+
+[node name="Break-Text8" parent="Title" instance=ExtResource( 9 )]
+editor/display_folded = true
+position = Vector2( 304, 135.425 )
+
+[node name="SpriteText" parent="Title/Break-Text8" index="0"]
+region_rect = Rect2( 112, 0, 16, 16 )
+
+[node name="Break-Text9" parent="Title" instance=ExtResource( 9 )]
+editor/display_folded = true
+position = Vector2( 336, 135.425 )
+
+[node name="SpriteText" parent="Title/Break-Text9" index="0"]
+region_rect = Rect2( 128, 0, 16, 16 )
+
+[editable path="Title/Break-Text"]
+
+[editable path="Title/Break-Text2"]
+
+[editable path="Title/Break-Text3"]
+
+[editable path="Title/Break-Text4"]
+
+[editable path="Title/Break-Text5"]
+
+[editable path="Title/Break-Text6"]
+
+[editable path="Title/Break-Text7"]
+
+[editable path="Title/Break-Text8"]
+
+[editable path="Title/Break-Text9"]

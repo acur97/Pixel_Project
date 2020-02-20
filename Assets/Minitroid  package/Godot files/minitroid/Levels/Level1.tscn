@@ -1,0 +1,43 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Levels/Level1.gd" type="Script" id=1]
+[ext_resource path="res://Levels/assets/bg1.png" type="Texture" id=2]
+[ext_resource path="res://Levels/assets/tileset-1.tres" type="TileSet" id=3]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/assets/exit.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Levels/Level2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://break-block/Break-Block.tscn" type="PackedScene" id=7]
+[ext_resource path="res://star/Star-Spawner.tscn" type="PackedScene" id=8]
+[ext_resource path="res://enemies/Worm/Worm.tscn" type="PackedScene" id=9]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="BG" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 2
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 327679, 0, 0, 393215, 0, 0, 458751, 0, 0, 393231, 1, 0, 393232, 1, 0, 524287, 0, 0, 458767, 1, 0, 458768, 1, 0, 589823, 0, 0, 524293, 0, 0, 524294, 0, 0, 524303, 1, 0, 524304, 1, 0, 655359, 0, 0, 589829, 0, 0, 589831, 0, 0, 589839, 1, 0, 589840, 1, 0, 589841, 2, 0, 589842, 2, 0, 589843, 2, 0, 589844, 0, 0, 589845, 0, 0, 589846, 0, 0, 589847, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655367, 0, 0, 655371, 0, 0, 655372, 0, 0, 655380, 0, 0, 655383, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720915, 0, 0, 720916, 0, 0, 720919, 0, 0, 720920, 0, 0, 720921, 0, 0, 720922, 0, 0, 786444, 0, 0, 786450, 0, 0, 786451, 0, 0, 786452, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 0, 0, 851984, 0, 0, 851985, 0, 0, 851986, 0, 0, 851987, 0, 0, 851988, 0, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 151.229, 163.272 )
+
+[node name="Exit" parent="." instance=ExtResource( 5 )]
+position = Vector2( 441.793, 126.539 )
+next_scene = ExtResource( 6 )
+
+[node name="Break-Block" parent="." instance=ExtResource( 7 )]
+position = Vector2( 112, 128 )
+
+[node name="Star-Spawner4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 32, 144 )
+starId = "s1"
+
+[node name="Worm" parent="." instance=ExtResource( 9 )]
+position = Vector2( 359, 143.875 )

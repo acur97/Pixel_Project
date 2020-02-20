@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Levels/assets/b3.png" type="Texture" id=1]
+[ext_resource path="res://Levels/credits-scrolls.gd" type="Script" id=2]
+[ext_resource path="res://assets/Final-Fantasy.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Levels/assets/patreon.png" type="Texture" id=4]
+[ext_resource path="res://Levels/assets/tileset-1.tres" type="TileSet" id=5]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Levels/assets/exit.tscn" type="PackedScene" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+font_data = ExtResource( 3 )
+
+[node name="Level1" type="Node2D"]
+
+[node name="BG" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+position = Vector2( 256, 240 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="KinematicBody2D"]
+margin_right = 176.0
+margin_bottom = 624.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "Sean Barrett
+Stefano Cinghialotto
+Anderson	Sargi Dias
+David	Ang
+ArcadeDragon	
+hyperstitious	
+Matthew	D Moores
+Philip	Rushik
+Thomas	
+Casey	Banner
+Brandon	Morris
+Allusive	Agent
+Zach	Breman
+Shane	Krolikowski
+Kest	
+Simon	Reboul
+Rob	Partington
+MyQly	
+Alex	
+C	W
+Reanimate	
+Jason	McMillen
+Elliott	Wallace
+Javier	Nandin Dominguez
+Pascal	Belisle
+Enginy	
+TTT	
+Cesar	Guirao
+Michael	Bacon
+MegaLurch	
+
+"
+scroll_active = false
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+position = Vector2( 41.8161, 409.623 )
+texture = ExtResource( 4 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 2
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 131071, 1, 0, 196607, 1, 0, 262142, 1, 0, 262143, 1, 0, 327678, 1, 0, 327679, 1, 0, 393214, 1, 0, 393215, 1, 0, 458750, 1, 0, 458751, 1, 0, 393243, 1, 0, 524286, 1, 0, 524287, 1, 0, 458779, 1, 0, 589822, 1, 0, 589823, 1, 0, 524315, 1, 0, 655358, 1, 0, 655359, 1, 0, 589851, 1, 0, 720894, 1, 0, 720895, 1, 0, 655387, 1, 0, 786430, 1, 0, 786431, 1, 0, 720923, 1, 0, 851966, 1, 0, 851967, 1, 0, 786459, 1, 0, 917502, 1, 0, 917503, 1, 0, 851995, 1, 0, 983038, 1, 0, 983039, 1, 0, 917504, 1, 0, 917505, 1, 0, 917506, 1, 0, 917507, 1, 0, 917508, 1, 0, 917509, 1, 0, 917510, 1, 0, 917511, 1, 0, 917512, 1, 0, 917513, 1, 0, 917514, 1, 0, 917515, 1, 0, 917516, 1, 0, 917517, 1, 0, 917518, 1, 0, 917519, 1, 0, 917520, 1, 0, 917521, 1, 0, 917522, 1, 0, 917523, 1, 0, 917524, 1, 0, 917525, 1, 0, 917526, 1, 0, 917527, 1, 0, 917528, 1, 0, 917529, 1, 0, 917530, 1, 0, 917531, 1, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 416, 208 )
+
+[node name="Exit" parent="." instance=ExtResource( 7 )]
+position = Vector2( -96, 160 )
+next_scene = null
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 192.0
+margin_bottom = 80.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "THANKS TO MY 
+PATREON SUPPORTERS 
+
+Tobias Edvardsen
+Chris Davis
+
+"
+scroll_active = false

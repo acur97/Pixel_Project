@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Levels/assets/b2.png" type="Texture" id=1]
+[ext_resource path="res://Levels/assets/tileset-1.tres" type="TileSet" id=2]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/assets/exit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/Level15.tscn" type="PackedScene" id=5]
+[ext_resource path="res://enemies/Slime/Slime.tscn" type="PackedScene" id=6]
+[ext_resource path="res://enemies/cannon/Cannon.tscn" type="PackedScene" id=7]
+[ext_resource path="res://enemies/Fly/Fly-hard.tscn" type="PackedScene" id=8]
+[ext_resource path="res://break-block/Break-Block.tscn" type="PackedScene" id=9]
+
+[node name="Level1" type="Node2D"]
+
+[node name="BG" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 2
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -196585, 1, 0, -196582, 1, 0, -131049, 1, 0, -131046, 1, 0, -65513, 1, 0, -65510, 1, 0, 0, 4, 0, 1, 4, 0, 2, 4, 0, 3, 4, 0, 4, 3, 0, 23, 1, 0, 26, 3, 0, 65536, 4, 0, 65537, 4, 0, 65538, 4, 0, 65539, 4, 0, 65540, 3, 0, 65559, 1, 0, 65562, 3, 0, 131072, 4, 0, 131073, 4, 0, 131074, 4, 0, 131075, 4, 0, 131076, 3, 0, 131098, 3, 0, 196608, 4, 0, 196609, 4, 0, 196610, 4, 0, 196611, 4, 0, 196612, 3, 0, 196624, 1, 0, 196625, 1, 0, 196626, 1, 0, 196627, 1, 0, 196634, 3, 0, 262144, 4, 0, 262145, 4, 0, 262146, 4, 0, 262147, 4, 0, 262148, 3, 0, 262149, 1, 0, 262150, 1, 0, 262151, 1, 0, 262152, 1, 0, 262153, 1, 0, 262154, 1, 0, 262157, 1, 0, 262158, 1, 0, 262159, 1, 0, 262160, 1, 0, 262161, 1, 0, 262162, 1, 0, 262163, 1, 0, 262164, 1, 0, 262165, 1, 0, 262166, 1, 0, 262167, 1, 0, 262168, 1, 0, 262169, 1, 0, 262170, 3, 0, 327680, 4, 0, 327681, 4, 0, 327682, 4, 0, 327683, 4, 0, 327684, 3, 0, 327701, 3, 0, 327702, 4, 0, 327703, 4, 0, 327704, 4, 0, 327705, 4, 0, 327706, 3, 0, 393216, 4, 0, 393217, 4, 0, 393218, 4, 0, 393219, 4, 0, 393220, 3, 0, 393237, 3, 0, 393238, 4, 0, 393239, 4, 0, 393240, 4, 0, 393241, 4, 0, 393242, 3, 0, 458752, 5, 0, 458753, 5, 0, 458754, 5, 0, 458755, 5, 0, 458756, 3, 0, 458773, 3, 0, 458774, 5, 0, 458775, 5, 0, 458776, 5, 0, 458777, 5, 0, 458778, 3, 0, 524288, 4, 0, 524289, 4, 0, 524290, 4, 0, 524291, 4, 0, 524292, 3, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524309, 3, 0, 524310, 4, 0, 524311, 4, 0, 524312, 4, 0, 524313, 4, 0, 524314, 3, 0, 589824, 4, 0, 589825, 4, 0, 589826, 4, 0, 589827, 4, 0, 589828, 3, 0, 589845, 3, 0, 589846, 4, 0, 589847, 4, 0, 589848, 4, 0, 589849, 4, 0, 589850, 3, 0, 655360, 4, 0, 655361, 4, 0, 655362, 4, 0, 655363, 4, 0, 655364, 3, 0, 655381, 3, 0, 655382, 4, 0, 655383, 4, 0, 655384, 4, 0, 655385, 4, 0, 655386, 3, 0, 720896, 4, 0, 720897, 4, 0, 720898, 4, 0, 720899, 4, 0, 720900, 3, 0, 720917, 3, 0, 720918, 4, 0, 720919, 4, 0, 720920, 4, 0, 720921, 4, 0, 720922, 3, 0, 786432, 4, 0, 786433, 4, 0, 786434, 4, 0, 786435, 4, 0, 786436, 3, 0, 786437, 1, 0, 786438, 1, 0, 786439, 1, 0, 786440, 1, 0, 786441, 1, 0, 786442, 1, 0, 786446, 1, 0, 786447, 1, 0, 786448, 1, 0, 786449, 1, 0, 786450, 1, 0, 786451, 1, 0, 786452, 1, 0, 786453, 3, 0, 786454, 4, 0, 786455, 4, 0, 786456, 4, 0, 786457, 4, 0, 786458, 3, 0, 851968, 4, 0, 851969, 4, 0, 851970, 4, 0, 851971, 4, 0, 851972, 4, 0, 851973, 4, 0, 851974, 4, 0, 851975, 4, 0, 851976, 4, 0, 851977, 4, 0, 851978, 1, 0, 851982, 1, 0, 851983, 4, 0, 851984, 4, 0, 851985, 4, 0, 851986, 4, 0, 851987, 4, 0, 851988, 4, 0, 851989, 4, 0, 851990, 4, 0, 851991, 4, 0, 851992, 4, 0, 851993, 4, 0, 851994, 3, 0, 917504, 4, 0, 917505, 4, 0, 917506, 4, 0, 917507, 4, 0, 917508, 4, 0, 917509, 4, 0, 917510, 4, 0, 917511, 4, 0, 917512, 4, 0, 917513, 4, 0, 917514, 1, 0, 917518, 1, 0, 917519, 4, 0, 917520, 4, 0, 917521, 4, 0, 917522, 4, 0, 917523, 4, 0, 917524, 4, 0, 917525, 4, 0, 917526, 4, 0, 917527, 4, 0, 917528, 4, 0, 917529, 4, 0, 917530, 3, 0, 983040, 4, 0, 983041, 4, 0, 983042, 4, 0, 983043, 4, 0, 983044, 4, 0, 983045, 4, 0, 983046, 4, 0, 983047, 4, 0, 983048, 4, 0, 983049, 4, 0, 983050, 1, 0, 983054, 1, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 399.024, -13.2745 )
+
+[node name="Exit" parent="." instance=ExtResource( 4 )]
+position = Vector2( 176, 320 )
+next_scene = ExtResource( 5 )
+
+[node name="Slime2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 264.132, 41.1924 )
+
+[node name="Slime3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 184.943, 121.083 )
+
+[node name="Slime4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 88.4224, 184.9 )
+
+[node name="Slime5" parent="." instance=ExtResource( 6 )]
+position = Vector2( 296.842, 184.723 )
+
+[node name="Cannon" parent="." instance=ExtResource( 7 )]
+position = Vector2( 64, 128 )
+
+[node name="Cannon2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 336.264, 128.176 )
+
+[node name="Fly-Hard" parent="." instance=ExtResource( 8 )]
+position = Vector2( 126.395, 30.9359 )
+
+[node name="Fly-Hard2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 200.818, 197.283 )
+
+[node name="Break-Block" parent="." instance=ExtResource( 9 )]
+position = Vector2( 368, 30.9359 )
+
+[node name="Break-Block2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 368, 32 )
+
+[node name="Break-Block3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 368, 48 )

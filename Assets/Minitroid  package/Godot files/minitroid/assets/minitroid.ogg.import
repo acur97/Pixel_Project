@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/minitroid.ogg-f8bad77c6a50885bfead5ec0e338bc11.oggstr"
+
+[deps]
+
+source_file="res://assets/minitroid.ogg"
+dest_files=[ "res://.import/minitroid.ogg-f8bad77c6a50885bfead5ec0e338bc11.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

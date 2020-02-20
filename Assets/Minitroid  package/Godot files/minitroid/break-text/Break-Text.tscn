@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://break-block/Break-Block.gd" type="Script" id=1]
+[ext_resource path="res://assets/title.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 15.9121, 15.885 )
+
+[node name="Break-Text" type="StaticBody2D" groups=[
+"break",
+]]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 1 )
+health = 1
+
+[node name="SpriteText" type="Sprite" parent="."]
+position = Vector2( 16, 16 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 16, 16 )
+shape = SubResource( 2 )

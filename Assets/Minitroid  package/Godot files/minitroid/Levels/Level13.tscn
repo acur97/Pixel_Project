@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Levels/assets/bg1.png" type="Texture" id=1]
+[ext_resource path="res://Levels/assets/tileset-1.tres" type="TileSet" id=2]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/assets/exit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/Level14.tscn" type="PackedScene" id=5]
+[ext_resource path="res://enemies/spikes/Spikes-top.tscn" type="PackedScene" id=6]
+[ext_resource path="res://enemies/Slime/Slime.tscn" type="PackedScene" id=7]
+[ext_resource path="res://VanishingBlock/Vanishing-Block.tscn" type="PackedScene" id=8]
+[ext_resource path="res://enemies/cannon/Cannon.tscn" type="PackedScene" id=9]
+
+[node name="Level1" type="Node2D"]
+
+[node name="BG" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 2
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -1, 0, 0, 65535, 0, 0, 4, 0, 0, 5, 4, 0, 6, 4, 0, 7, 4, 0, 8, 0, 0, 14, 0, 0, 15, 4, 0, 16, 4, 0, 17, 4, 0, 18, 4, 0, 19, 4, 0, 20, 4, 0, 21, 4, 0, 22, 4, 0, 23, 4, 0, 24, 4, 0, 25, 4, 0, 26, 3, 0, 131071, 0, 0, 65540, 0, 0, 65541, 4, 0, 65542, 4, 0, 65543, 4, 0, 65544, 0, 0, 65550, 0, 0, 65551, 4, 0, 65552, 4, 0, 65553, 4, 0, 65554, 4, 0, 65555, 4, 0, 65556, 4, 0, 65557, 4, 0, 65558, 4, 0, 65559, 4, 0, 65560, 4, 0, 65561, 4, 0, 65562, 3, 0, 196607, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131086, 0, 0, 131087, 4, 0, 131088, 4, 0, 131089, 4, 0, 131090, 4, 0, 131091, 4, 0, 131092, 4, 0, 131093, 4, 0, 131094, 4, 0, 131095, 4, 0, 131096, 4, 0, 131097, 4, 0, 131098, 3, 0, 262143, 0, 0, 196622, 0, 0, 196623, 4, 0, 196624, 4, 0, 196625, 4, 0, 196626, 4, 0, 196627, 4, 0, 196628, 4, 0, 196629, 4, 0, 196630, 4, 0, 196631, 4, 0, 196632, 4, 0, 196633, 4, 0, 196634, 3, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262158, 0, 0, 262159, 4, 0, 262160, 4, 0, 262161, 4, 0, 262162, 4, 0, 262163, 4, 0, 262164, 4, 0, 262165, 4, 0, 262166, 4, 0, 262167, 4, 0, 262168, 4, 0, 262169, 4, 0, 262170, 3, 0, 393215, 0, 0, 327680, 0, 0, 327681, 0, 0, 327694, 0, 0, 327695, 4, 0, 327696, 0, 0, 327697, 0, 0, 327698, 0, 0, 327699, 0, 0, 327700, 0, 0, 327701, 0, 0, 327702, 0, 0, 327703, 0, 0, 327704, 0, 0, 327705, 0, 0, 327706, 3, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393222, 0, 0, 393224, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393242, 3, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458758, 0, 0, 458760, 0, 0, 458778, 3, 0, 589823, 0, 0, 524288, 0, 0, 524289, 0, 0, 524314, 3, 0, 655359, 0, 0, 589824, 0, 0, 589825, 0, 0, 589850, 3, 0, 655360, 0, 0, 655361, 0, 0, 655383, 3, 0, 655384, 4, 0, 655385, 4, 0, 655386, 3, 0, 720896, 0, 0, 720897, 0, 0, 720919, 3, 0, 720920, 4, 0, 720921, 4, 0, 720922, 3, 0, 786432, 0, 0, 786433, 0, 0, 786455, 3, 0, 786456, 4, 0, 786457, 4, 0, 786458, 3, 0, 851968, 0, 0, 851969, 0, 0, 851991, 3, 0, 851992, 4, 0, 851993, 4, 0, 851994, 3, 0, 917504, 0, 0, 917505, 0, 0, 917506, 5, 0, 917507, 5, 0, 917508, 5, 0, 917509, 5, 0, 917510, 5, 0, 917511, 5, 0, 917512, 5, 0, 917513, 5, 0, 917514, 5, 0, 917515, 5, 0, 917516, 5, 0, 917517, 5, 0, 917518, 5, 0, 917519, 5, 0, 917520, 5, 0, 917521, 5, 0, 917522, 3, 0, 917523, 5, 0, 917524, 5, 0, 917525, 5, 0, 917526, 5, 0, 917527, 3, 0, 917528, 4, 0, 917529, 4, 0, 917530, 3, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 10.1146, 50.7187 )
+
+[node name="Exit" parent="." instance=ExtResource( 4 )]
+position = Vector2( 384, 320 )
+next_scene = ExtResource( 5 )
+
+[node name="Spikes-Top" parent="." instance=ExtResource( 6 )]
+position = Vector2( 128, 48 )
+
+[node name="Spikes-Top2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 112, 48 )
+
+[node name="Slime2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 103.98, 88.8388 )
+
+[node name="Vanishing-Block2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 64, 128 )
+
+[node name="Vanishing-Block3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 112, 160 )
+
+[node name="Vanishing-Block4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 160, 192 )
+
+[node name="Vanishing-Block5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 192, 168 )
+
+[node name="Vanishing-Block6" parent="." instance=ExtResource( 8 )]
+position = Vector2( 224, 144 )
+
+[node name="Vanishing-Block7" parent="." instance=ExtResource( 8 )]
+position = Vector2( 256, 128 )
+
+[node name="Vanishing-Block8" parent="." instance=ExtResource( 8 )]
+position = Vector2( 256, 184 )
+
+[node name="Vanishing-Block9" parent="." instance=ExtResource( 8 )]
+position = Vector2( 320, 184.398 )
+
+[node name="Cannon" parent="." instance=ExtResource( 9 )]
+position = Vector2( 288, 208 )

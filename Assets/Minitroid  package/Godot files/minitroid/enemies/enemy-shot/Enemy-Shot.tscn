@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://enemies/enemy-shot/Enemy-Shot.gd" type="Script" id=1]
+[ext_resource path="res://enemies/enemy-shot/enemy-shot1.png" type="Texture" id=2]
+[ext_resource path="res://enemies/enemy-shot/enemy-shot2.png" type="Texture" id=3]
+[ext_resource path="res://enemies/enemy-shot/enemy-shot3.png" type="Texture" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 17.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 3.1, 2.64375 )
+
+[node name="Enemy-Shot" type="Area2D" groups=[
+"shots",
+]]
+position = Vector2( 0.0625, -0.125 )
+collision_layer = 8
+collision_mask = 3
+script = ExtResource( 1 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+frame = 2
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.0625, 0.4375 )
+shape = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[connection signal="body_entered" from="." to="." method="_on_EnemyShot_body_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

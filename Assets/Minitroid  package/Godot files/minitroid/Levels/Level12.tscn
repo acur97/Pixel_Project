@@ -1,0 +1,116 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Levels/assets/bg1.png" type="Texture" id=1]
+[ext_resource path="res://Levels/assets/tileset-1.tres" type="TileSet" id=2]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/assets/exit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/Level13.tscn" type="PackedScene" id=5]
+[ext_resource path="res://enemies/cannon/Cannon-2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://enemies/spikes/Spikes-top.tscn" type="PackedScene" id=7]
+[ext_resource path="res://enemies/Slime/Slime.tscn" type="PackedScene" id=8]
+[ext_resource path="res://enemies/spikes/Spikes.tscn" type="PackedScene" id=9]
+[ext_resource path="res://VanishingBlock/Vanishing-Block.tscn" type="PackedScene" id=10]
+[ext_resource path="res://enemies/Fly/Fly-hard.tscn" type="PackedScene" id=11]
+
+[node name="Level1" type="Node2D"]
+
+[node name="BG" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 2
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -1, 0, 0, -65536, 0, 0, 65535, 0, 0, 0, 0, 0, 9, 0, 0, 10, 0, 0, 131071, 0, 0, 65536, 0, 0, 65545, 0, 0, 65546, 0, 0, 196607, 0, 0, 131072, 0, 0, 131081, 0, 0, 131082, 0, 0, 131088, 2, 0, 131089, 2, 0, 131090, 2, 0, 131093, 2, 0, 262143, 0, 0, 196608, 0, 0, 327679, 0, 0, 262144, 0, 0, 262157, 2, 0, 262158, 2, 0, 262168, 0, 0, 262169, 0, 0, 262170, 0, 0, 393215, 0, 0, 327704, 0, 0, 327705, 0, 0, 327706, 0, 0, 458751, 0, 0, 393216, 0, 0, 393221, 0, 0, 393223, 0, 0, 393240, 0, 0, 393241, 0, 0, 393242, 0, 0, 524287, 0, 0, 458774, 2, 0, 458775, 2, 0, 458776, 0, 0, 458777, 0, 0, 458778, 0, 0, 589823, 0, 0, 524291, 0, 0, 524312, 0, 0, 524313, 0, 0, 524314, 0, 0, 655359, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589838, 0, 0, 589839, 0, 0, 589840, 0, 0, 589846, 0, 0, 589847, 0, 0, 589848, 0, 0, 589849, 0, 0, 589850, 0, 0, 589851, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655378, 0, 0, 655380, 0, 0, 655382, 0, 0, 655383, 0, 0, 655384, 0, 0, 655385, 0, 0, 655386, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720918, 0, 0, 720919, 0, 0, 720920, 0, 0, 720921, 0, 0, 720922, 0, 0, 786432, 0, 0, 786433, 0, 0, 786434, 0, 0, 786435, 0, 0, 786436, 0, 0, 786437, 0, 0, 786438, 0, 0, 786439, 0, 0, 786440, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, 0, 0, 786447, 0, 0, 786448, 0, 0, 786449, 0, 0, 786450, 0, 0, 786451, 0, 0, 786452, 0, 0, 786453, 0, 0, 786454, 0, 0, 786455, 0, 0, 786456, 0, 0, 786457, 0, 0, 786458, 0, 0, 851968, 0, 0, 851969, 0, 0, 851970, 0, 0, 851971, 0, 0, 851972, 0, 0, 851973, 0, 0, 851974, 0, 0, 851975, 0, 0, 851976, 0, 0, 851977, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 0, 0, 851984, 0, 0, 851985, 0, 0, 851986, 0, 0, 851987, 0, 0, 851988, 0, 0, 851989, 0, 0, 851990, 0, 0, 851991, 0, 0, 851992, 0, 0, 851993, 0, 0, 851994, 0, 0, 917504, 0, 0, 917505, 0, 0, 917506, 0, 0, 917507, 0, 0, 917508, 0, 0, 917509, 0, 0, 917510, 0, 0, 917511, 0, 0, 917512, 0, 0, 917513, 0, 0, 917514, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 917520, 0, 0, 917521, 0, 0, 917522, 0, 0, 917523, 0, 0, 917524, 0, 0, 917525, 0, 0, 917526, 0, 0, 917527, 0, 0, 917528, 0, 0, 917529, 0, 0, 917530, 0, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 8.82537, 131.889 )
+
+[node name="Exit" parent="." instance=ExtResource( 4 )]
+position = Vector2( 443.396, 32 )
+next_scene = ExtResource( 5 )
+
+[node name="Cannon-2" parent="." instance=ExtResource( 6 )]
+position = Vector2( -1.39384, 80 )
+direction = -1
+
+[node name="Spikes-Top" parent="." instance=ExtResource( 7 )]
+position = Vector2( 144, 48 )
+
+[node name="Spikes-Top2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 160, 48 )
+
+[node name="Slime" parent="." instance=ExtResource( 8 )]
+position = Vector2( 86.9511, 89.7867 )
+
+[node name="Slime2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 86.9511, 89.7867 )
+
+[node name="Slime3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 231.425, 136.669 )
+
+[node name="Slime4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 280.205, 80 )
+
+[node name="Spikes" parent="." instance=ExtResource( 9 )]
+position = Vector2( 64, 128 )
+
+[node name="Spikes2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 80, 128 )
+
+[node name="Spikes3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 96, 128 )
+
+[node name="Spikes4" parent="." instance=ExtResource( 9 )]
+position = Vector2( 112, 128 )
+
+[node name="Spikes5" parent="." instance=ExtResource( 9 )]
+position = Vector2( 128, 176 )
+
+[node name="Spikes6" parent="." instance=ExtResource( 9 )]
+position = Vector2( 144, 176 )
+
+[node name="Spikes7" parent="." instance=ExtResource( 9 )]
+position = Vector2( 160, 176 )
+
+[node name="Spikes8" parent="." instance=ExtResource( 9 )]
+position = Vector2( 176, 176 )
+
+[node name="Spikes11" parent="." instance=ExtResource( 9 )]
+position = Vector2( 271.546, 176 )
+
+[node name="Spikes12" parent="." instance=ExtResource( 9 )]
+position = Vector2( 288, 176 )
+
+[node name="Spikes13" parent="." instance=ExtResource( 9 )]
+position = Vector2( 304, 176 )
+
+[node name="Spikes14" parent="." instance=ExtResource( 9 )]
+position = Vector2( 320, 176 )
+
+[node name="Spikes15" parent="." instance=ExtResource( 9 )]
+position = Vector2( 336, 176 )
+
+[node name="Spikes9" parent="." instance=ExtResource( 9 )]
+position = Vector2( 192, 176 )
+
+[node name="Spikes10" parent="." instance=ExtResource( 9 )]
+position = Vector2( 208, 176 )
+
+[node name="Vanishing-Block" parent="." instance=ExtResource( 10 )]
+position = Vector2( 160, 143.389 )
+
+[node name="Vanishing-Block2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 271.546, 96 )
+
+[node name="Vanishing-Block3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 304, 96.3978 )
+
+[node name="Fly-Hard" parent="." instance=ExtResource( 11 )]
+position = Vector2( 288, -8 )
