@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Mage
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 4096
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 2
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 2
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 407d2306911b88b4e8c6685f83e554e2, type: 3}
+    - {fileID: 102900000, guid: a818210071515b44fa7c3b2a79de0a9c, type: 3}
+    - {fileID: 102900000, guid: 51454a090fa2e2042aef5ddf1114cb0c, type: 3}
+    - {fileID: 102900000, guid: f5ce6f08191e6e048a6bcd289f265194, type: 3}
+    totalSpriteSurfaceArea: 38184
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 4e83f621eb89ac1449e9e9d96e9b7255, type: 3}
+  - {fileID: 21300000, guid: d2f718612e5266542a14823fb8939cff, type: 3}
+  - {fileID: 21300000, guid: 5f13c1a130538b44185c51e5b1ad7dec, type: 3}
+  - {fileID: 21300000, guid: 38964a625b3a574449ae24ca5830a3ec, type: 3}
+  - {fileID: 21300000, guid: 1ed8df824e4265444b50dce3841a3ef9, type: 3}
+  - {fileID: 21300000, guid: 2ece0da27d16d06499ed3863b3da36ac, type: 3}
+  - {fileID: 21300000, guid: 908d65639b6255042a557961c8a34f3c, type: 3}
+  - {fileID: 21300000, guid: 10356d63b54460e47a67d93c73ffef60, type: 3}
+  - {fileID: 21300000, guid: fbd21093d2813dd40ab77b823295a9e0, type: 3}
+  - {fileID: 21300000, guid: 2a6112b387d951341b1c24643e45d4e3, type: 3}
+  - {fileID: 21300000, guid: 2dfe56e35eee42f499785acfaafd3c39, type: 3}
+  - {fileID: 21300000, guid: afe45f445eba09944ba166399872fe90, type: 3}
+  - {fileID: 21300000, guid: 6699b354bf9f99241b608e5f76eadd11, type: 3}
+  - {fileID: 21300000, guid: 4e51f8545aa91de48926cc1c0c177d2a, type: 3}
+  - {fileID: 21300000, guid: 61bf25f527a19a54fbfad649d7cf8cb0, type: 3}
+  - {fileID: 21300000, guid: a99911062875d2c428fcb53b908a2129, type: 3}
+  - {fileID: 21300000, guid: bca031369eb551e49968693c883ba4f1, type: 3}
+  - {fileID: 21300000, guid: 02a344a68b477384c90205e11d725c38, type: 3}
+  - {fileID: 21300000, guid: f341d068d9ee2ca4994ef1fa550ef6b6, type: 3}
+  - {fileID: 21300000, guid: e107751999c4301448f194d45dc3c6f3, type: 3}
+  - {fileID: 21300000, guid: a4ef38e98e06bce44b45a9d3a7cd14e8, type: 3}
+  - {fileID: 21300000, guid: 6f62830a550e13e44b665eb80d6a2159, type: 3}
+  - {fileID: 21300000, guid: 5411e60ae1d76214f99e369a10067e05, type: 3}
+  - {fileID: 21300000, guid: d180e51abb44b7d479993f12fde4e15c, type: 3}
+  - {fileID: 21300000, guid: 90580dba2f95b7e4b96b95405b5f8909, type: 3}
+  - {fileID: 21300000, guid: ce6b87fade07e4d428a1c9f283c85e81, type: 3}
+  - {fileID: 21300000, guid: 5356a54b835231f41b7d7a01023ba6d3, type: 3}
+  - {fileID: 21300000, guid: 3c1c047b07cd70a4aaa6044aef3df88c, type: 3}
+  - {fileID: 21300000, guid: f88d97abfbb36f441a9c59970474b7fc, type: 3}
+  - {fileID: 21300000, guid: 4959495cd76cb8d4d971a6f330822bac, type: 3}
+  - {fileID: 21300000, guid: 5c0a005d0af0171409be2c0d675cd7f8, type: 3}
+  - {fileID: 21300000, guid: 7354245d59b8d3e4cb627b71e004871f, type: 3}
+  - {fileID: 21300000, guid: 08cce04e15420a345aad57f52cea1c98, type: 3}
+  - {fileID: 21300000, guid: 7500f67ee1d8ce34b8e22484b4929915, type: 3}
+  - {fileID: 21300000, guid: 446c7fce9886ab840a0ded6b234cb482, type: 3}
+  - {fileID: 21300000, guid: ac89671f6b241ff44927ee2f84e632b9, type: 3}
+  - {fileID: 21300000, guid: 3f9bb62f3bb6e0145990e76ffaba04f9, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - mage_run_side_9
+  - mage_idle_5
+  - mage_run_down_1
+  - mage_run_up_2
+  - mage_run_up_1
+  - mage_run_side_10
+  - mage_run_side_8
+  - mage_run_side_6
+  - mage_run_up_10
+  - mage_run_down_5
+  - mage_run_down_7
+  - mage_idle_7
+  - mage_run_up_3
+  - mage_run_side_7
+  - mage_run_down_9
+  - mage_run_up_9
+  - mage_idle_3
+  - mage_run_down_8
+  - mage_run_side_3
+  - mage_idle_2
+  - mage_run_up_6
+  - mage_run_down_6
+  - mage_run_up_8
+  - mage_run_side_1
+  - mage_run_up_4
+  - mage_run_down_4
+  - mage_idle_6
+  - mage_run_side_2
+  - mage_run_side_4
+  - mage_idle_4
+  - mage_run_down_10
+  - mage_run_up_5
+  - mage_run_down_2
+  - mage_run_down_3
+  - mage_run_side_5
+  - mage_run_up_7
+  - mage_idle_1
+  m_Tag: Mage
+  m_IsVariant: 0
