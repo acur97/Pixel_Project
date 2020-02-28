@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class Bala : MonoBehaviour
 {
-    public float velocidad;
+    public float velocidad = 1;
     public InGameManager manager;
+    public float tiempoMuerte = 2;
+
+    private void Start()
+    {
+        StartCoroutine(TMuerte());
+    }
 
     private void Update()
     {
-        transform.Translate(0, 0, Time.unscaledDeltaTime * velocidad);
+        if (manager.InGame)
+        {
+            transform.Translate(0, 0, Time.unscaledDeltaTime * velocidad);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -19,5 +28,11 @@ public class Bala : MonoBehaviour
             manager.CambiarVida(-2);
             Destroy(gameObject);
         }
+    }
+
+    IEnumerator TMuerte()
+    {
+        yield return new WaitForSecondsRealtime(tiempoMuerte);
+        Destroy(gameObject);
     }
 }

@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 65e21615dc3547944a739d7eb149f7cb
+guid: 2837d8ea7bbae694e99a67f405752d08
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
-  fontSize: 16
-  forceTextureCase: -2
+  fontSize: 208
+  forceTextureCase: -1
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: EquipmentPro
+  fontName: Pixelade
   fontNames:
-  - EquipmentPro
+  - Pixelade
   fallbackFontReferences: []
   customCharacters: 
-  fontRenderingMode: 0
+  fontRenderingMode: 2
   ascentCalculationMode: 1
   useLegacyBoundsCalculation: 0
   shouldRoundAdvanceValue: 1

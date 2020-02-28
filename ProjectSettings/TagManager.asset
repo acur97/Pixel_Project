@@ -8,6 +8,7 @@ TagManager:
   - JugadorPuntoMuerte
   - EnemigoBala
   - Enemigo
+  - JugadorBala
   layers:
   - Default
   - TransparentFX
@@ -17,11 +18,11 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
-  - 
-  - 
-  - 
-  - 
+  - Post
+  - Enemigo
+  - Jugador
+  - BalaJugador
+  - BalaEnemigo
   - 
   - 
   - 
