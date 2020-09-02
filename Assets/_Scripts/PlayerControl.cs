@@ -179,7 +179,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (manager.InGame)
         {
-            transform.position += new Vector3(Time.unscaledDeltaTime * (moves.x * velocidad), Time.unscaledDeltaTime * (moves.y * velocidad));
+            transform.position += new Vector3(Time.unscaledDeltaTime * (moves.x * velocidad), 0, Time.unscaledDeltaTime * (moves.y * velocidad));
         }
     }
 
