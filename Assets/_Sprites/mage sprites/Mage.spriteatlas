@@ -40,6 +40,7 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 1
       enableTightPacking: 1
+    secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 407d2306911b88b4e8c6685f83e554e2, type: 3}
@@ -127,5 +128,6 @@ SpriteAtlas:
   - mage_run_side_5
   - mage_run_up_7
   - mage_idle_1
+  m_RenderDataMap: {}
   m_Tag: Mage
   m_IsVariant: 0

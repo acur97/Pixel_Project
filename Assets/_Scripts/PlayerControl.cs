@@ -1,110 +1,123 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerControl : MonoBehaviour
 {
-    public InGameManager manager;
-    [Space]
-    public float velocidad = 1;
-    public float XdevolverBala = 1.5f;
-    public Transform cubeTest;
-    public Transform cubeTestEnemy;
-    public Transform pointerTest;
-    public Camera cam;
+    private InGameManager manager;
+
+    [SerializeField] private float velocidad = 1;
+    [SerializeField] private float XdevolverBala = 1.5f;
+    [SerializeField] private Transform cubeTest;
+    [SerializeField] private Transform cubeTestEnemy;
+    [SerializeField] private Transform pointerTest;
+    [SerializeField] private Camera cam;
+    [SerializeField] private Color colorBalaRegreso = new Color32(0, 255, 0, 255);
+
     [Space]
     public List<GameObject> balas;
 
-    private Vector3 Mpos;
-    private Vector2 moves;
-    private bool balaPasando;
+    private Vector3 Mpos = Vector3.zero;
+    private Vector2 moves = Vector2.zero;
+    private Vector2 offset = Vector2.zero;
     private Animator anim;
     private SpriteRenderer Srender;
-    private PlayerInput Pinput;
+    private Transform[] balasL = new Transform[0];
+    private SpriteRenderer[] balaColors = new SpriteRenderer[0];
+
+    private const string _Horizontal = "Horizontal";
+    private const string _Vertical = "Vertical";
+    private const string _Fire1 = "Fire1";
+    private const string _Cancel = "Cancel";
+    private const string _mov_side = "mov_side";
+    private const string _mov_up = "mov_up";
+    private const string _mov_down = "mov_down";
+    private const string _JugadorBala = "JugadorBala";
+    private const string _EnemigoBala = "EnemigoBala";
 
     private void Awake()
     {
-        Pinput = GetComponent<PlayerInput>();
+        manager = InGameManager.instance;
+
         anim = GetComponent<Animator>();
         Srender = GetComponent<SpriteRenderer>();
         pointerTest.GetComponentsInChildren<Transform>()[1].localEulerAngles = new Vector3(-90, 90, 90);
     }
 
-    public void OnDeviceLost(PlayerInput device)
-    {
-        Debug.Log("No hay control, reconecte o active otro control");
-    }
-
-    public void OnDeviceRegained(PlayerInput device)
-    {
-        Debug.Log("Control reconectado");
-    }
-
-    public void OnControlsChanged(PlayerInput change)
-    {
-        Debug.Log(change.currentControlScheme);
-    }
-
-    public void OnMover(InputValue value)
+    private void Update()
     {
         if (manager.InGame)
         {
-            moves = value.Get<Vector2>();
+            OnApuntar();
+            OnMover(Input.GetAxis(_Horizontal), Input.GetAxis(_Vertical));
+            if (Input.GetButtonDown(_Fire1))
+            {
+                OnAccion();
+            }
+            if (Input.GetButtonDown(_Cancel))
+            {
+                OnPausa();
+            }
+
+            transform.Translate(Time.deltaTime * (moves.x * velocidad), Time.deltaTime * (moves.y * velocidad), 0);
+        }
+    }
+
+    private void LateUpdate()
+    {
+        cam.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
+    }
+
+    public void OnMover(float _x, float _y)
+    {
+        if (manager.InGame)
+        {
+            moves = new Vector2(_x, _y);
 
             if (moves.y > 0 && moves.x == 0)
             {
-                anim.SetBool("mov_side", false);
-                anim.SetBool("mov_up", true);
-                anim.SetBool("mov_down", false);
+                anim.SetBool(_mov_side, false);
+                anim.SetBool(_mov_up, true);
+                anim.SetBool(_mov_down, false);
             }
             if (moves.y < 0 && moves.x == 0)
             {
-                anim.SetBool("mov_side", false);
-                anim.SetBool("mov_up", false);
-                anim.SetBool("mov_down", true);
+                anim.SetBool(_mov_side, false);
+                anim.SetBool(_mov_up, false);
+                anim.SetBool(_mov_down, true);
             }
             if (moves.x > 0)
             {
-                anim.SetBool("mov_side", true);
+                anim.SetBool(_mov_side, true);
                 Srender.flipX = false;
-                anim.SetBool("mov_up", false);
-                anim.SetBool("mov_down", false);
+                anim.SetBool(_mov_up, false);
+                anim.SetBool(_mov_down, false);
             }
             if (moves.x < 0)
             {
-                anim.SetBool("mov_side", true);
+                anim.SetBool(_mov_side, true);
                 Srender.flipX = true;
-                anim.SetBool("mov_up", false);
-                anim.SetBool("mov_down", false);
+                anim.SetBool(_mov_up, false);
+                anim.SetBool(_mov_down, false);
             }
             if (moves.x == 0 && moves.y == 0)
             {
-                anim.SetBool("mov_side", false);
-                anim.SetBool("mov_up", false);
-                anim.SetBool("mov_down", false);
+                anim.SetBool(_mov_side, false);
+                anim.SetBool(_mov_up, false);
+                anim.SetBool(_mov_down, false);
             }
         }
     }
 
-    public void OnApuntar(InputValue value)
+    public void OnApuntar()
     {
         if (manager.InGame)
         {
-            if (Pinput.currentControlScheme == "TecladoMouse")
-            {
-                Mpos = cam.ScreenToWorldPoint(value.Get<Vector2>());
-                cubeTest.position = new Vector3(Mpos.x, Mpos.y);
-            }
-            else
-            {
-                Mpos = value.Get<Vector2>();
-                cubeTest.localPosition = new Vector3(Mpos.x, Mpos.y);
-            }
+            Mpos = cam.ScreenToWorldPoint(Input.mousePosition);
+            cubeTest.position = new Vector2(Mpos.x, Mpos.y);
             pointerTest.LookAt(cubeTest.position, Vector3.forward);
 
             // invertido rojo
-            Vector2 offset = new Vector2(-cubeTest.localPosition.x, -cubeTest.localPosition.y);
+            offset = new Vector2(-cubeTest.localPosition.x, -cubeTest.localPosition.y);
             if (cubeTest.localPosition.x > 0)
             {
 
@@ -129,7 +142,7 @@ public class PlayerControl : MonoBehaviour
             }
             //if (offset.x < 2 && offset.x > -2 || offset.y < 2 && offset.y > -2)
             {
-                cubeTestEnemy.localPosition = new Vector3(offset.x, offset.y);
+                cubeTestEnemy.localPosition = new Vector2(offset.x, offset.y);
             }
             Mpos.z = 0;
             pointerTest.LookAt(Mpos, Vector3.forward);
@@ -149,21 +162,20 @@ public class PlayerControl : MonoBehaviour
                 }
                 else
                 {
-                    balas[i].tag = "JugadorBala";
-                    Transform[] balasL = balas[i].GetComponentsInChildren<Transform>();
+                    balas[i].tag = _JugadorBala;
+                    balasL = balas[i].GetComponentsInChildren<Transform>();
                     for (int x = 0; x < balasL.Length; x++)
                     {
                         balasL[x].gameObject.layer = 11;
                     }
                     //balas[i].layer = 11;
-                    SpriteRenderer[] balaColors = balas[i].GetComponentsInChildren<SpriteRenderer>();
+                    balaColors = balas[i].GetComponentsInChildren<SpriteRenderer>();
                     for (int j = 0; j < balaColors.Length; j++)
                     {
-                        balaColors[j].color = new Color32(0, 255, 0, 255);
+                        balaColors[j].color = colorBalaRegreso;
                     }
                     balas[i].transform.rotation = pointerTest.rotation;
-                    float vel = balas[i].GetComponent<Bala>().velocidad;
-                    balas[i].GetComponent<Bala>().velocidad = vel * XdevolverBala;
+                    balas[i].GetComponent<Bala>().velocidad *= XdevolverBala;
                 }
             }
             balas.Clear();
@@ -175,17 +187,9 @@ public class PlayerControl : MonoBehaviour
         manager.Pausa();
     }
 
-    private void Update()
-    {
-        if (manager.InGame)
-        {
-            transform.position += new Vector3(Time.unscaledDeltaTime * (moves.x * velocidad), 0, Time.unscaledDeltaTime * (moves.y * velocidad));
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("EnemigoBala"))
+        if (collision.transform.CompareTag(_EnemigoBala))
         {
             balas.Remove(collision.gameObject);
         }

@@ -1,14 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerBarrera : MonoBehaviour
 {
-    public PlayerControl pControl;
+    [SerializeField] private PlayerControl pControl;
+
+    private const string _EnemigoBala = "EnemigoBala";
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.parent.CompareTag("EnemigoBala"))
+        if (collision.transform.parent.CompareTag(_EnemigoBala))
         {
             pControl.balas.Add(collision.transform.parent.gameObject);
         }
@@ -16,7 +16,7 @@ public class PlayerBarrera : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.transform.parent.CompareTag("EnemigoBala"))
+        if (collision.transform.parent.CompareTag(_EnemigoBala))
         {
             pControl.balas.Remove(collision.transform.parent.gameObject);
         }

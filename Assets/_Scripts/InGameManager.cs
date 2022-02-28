@@ -1,30 +1,40 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class InGameManager : MonoBehaviour
 {
+    public static InGameManager instance;
+
     public bool InGame = false;
-    //public 
+
     [Space]
     public Text UI_puntos;
     public Text UI_vida;
+
     [Space]
     public int Puntuacion;
     public int Vida;
+
     [Space]
     public GameObject Jugador;
     public GameObject ob;
     public EventSystem eSystem;
+
     [Header("UI Canvas")]
     public GameObject canvas_game;
     public GameObject canvas_Pausa;
     public Button Pausa_firstSelect;
 
+    private WaitForSeconds wait;
+
     private void Awake()
     {
+        instance = this;
+
+        wait = new WaitForSeconds(0.1f);
+
         UI_puntos.text = Puntuacion.ToString();
         UI_vida.text = Vida.ToString();
 
@@ -36,8 +46,8 @@ public class InGameManager : MonoBehaviour
     {
         StartCoroutine(DelayStart());
 
+#if UNITY_EDITOR
         ob = FindObjectOfType<GameObject>();
-        //ob = FindObjectsOfType<GameObject>();
 
         if (ob.name == "[Debug Updater]")
         {
@@ -47,11 +57,12 @@ public class InGameManager : MonoBehaviour
         {
             Debug.LogWarning("No es el primero");
         }
+#endif
     }
 
     IEnumerator DelayStart()
     {
-        yield return new WaitForSecondsRealtime(0.1f);
+        yield return wait;
         InGame = true;
     }
 
@@ -60,7 +71,7 @@ public class InGameManager : MonoBehaviour
         if (InGame)
         {
             InGame = false;
-            Debug.Log("Pausado");
+            //Debug.Log("Pausado");
 
             canvas_game.SetActive(false);
             canvas_Pausa.SetActive(true);
@@ -70,7 +81,7 @@ public class InGameManager : MonoBehaviour
         else
         {
             InGame = true;
-            Debug.Log("Reanudar");
+            //Debug.Log("Reanudar");
 
             canvas_game.SetActive(true);
             canvas_Pausa.SetActive(false);

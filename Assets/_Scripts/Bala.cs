@@ -1,12 +1,22 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bala : MonoBehaviour
 {
+    private InGameManager manager;
+
     public float velocidad = 1;
-    public InGameManager manager;
-    public float tiempoMuerte = 2;
+    [SerializeField] private float tiempoMuerte = 2;
+
+    private WaitForSeconds wait;
+
+    private const string _JugadorPuntoMuerte = "JugadorPuntoMuerte";
+
+    private void Awake()
+    {
+        manager = InGameManager.instance;
+        wait = new WaitForSeconds(tiempoMuerte);
+    }
 
     private void Start()
     {
@@ -17,13 +27,13 @@ public class Bala : MonoBehaviour
     {
         if (manager.InGame)
         {
-            transform.Translate(0, 0, Time.unscaledDeltaTime * velocidad);
+            transform.Translate(0, 0, Time.deltaTime * velocidad);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("JugadorPuntoMuerte"))
+        if (collision.CompareTag(_JugadorPuntoMuerte))
         {
             manager.CambiarVida(-2);
             Destroy(gameObject);
@@ -32,7 +42,7 @@ public class Bala : MonoBehaviour
 
     IEnumerator TMuerte()
     {
-        yield return new WaitForSecondsRealtime(tiempoMuerte);
+        yield return wait;
         Destroy(gameObject);
     }
 }
