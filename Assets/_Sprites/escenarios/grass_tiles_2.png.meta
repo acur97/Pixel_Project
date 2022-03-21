@@ -702,7 +702,7 @@ TextureImporter:
       213: 250501122912411772
     second: grass_tiles_2_98
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -722,6 +722,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -731,8 +733,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -753,9 +755,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -3920,7 +3926,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: a785d4f7d1139eb90800000000000000
-      internalID: -7212179325497550726
+      internalID: -4182989356919378569
       vertices: []
       indices: 
       edges: []
@@ -3941,7 +3947,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 9ee2b75b0317c0840800000000000000
-      internalID: 5191648924468457193
+      internalID: -6926847767008951446
       vertices: []
       indices: 
       edges: []
@@ -3962,7 +3968,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 889e3ea5cb70c8310800000000000000
-      internalID: 1408509289020254600
+      internalID: -4367281223672458732
       vertices: []
       indices: 
       edges: []
@@ -3983,7 +3989,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: f50af695c4ca0a190800000000000000
-      internalID: -7953167498018316193
+      internalID: -4774028833260723955
       vertices: []
       indices: 
       edges: []
@@ -4046,7 +4052,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: b8c17f446a79b3e50800000000000000
-      internalID: 6790187603568565387
+      internalID: -7617945088081280289
       vertices: []
       indices: 
       edges: []
@@ -4067,7 +4073,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 0bc2583629cca5b60800000000000000
-      internalID: 7735720239069211824
+      internalID: 7794025867778672635
       vertices: []
       indices: 
       edges: []
@@ -4088,7 +4094,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: c70e70fa175f97300800000000000000
-      internalID: 250501122912411772
+      internalID: -2510589400363539440
       vertices: []
       indices: 
       edges: []
@@ -4103,6 +4109,164 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      grass_tiles_2_29: -363538957190958296
+      grass_tiles_2_139: -6836884675086893988
+      grass_tiles_2_56: 988794370907266951
+      grass_tiles_2_4: -2378963983565499557
+      grass_tiles_2_18: 2634529137841368054
+      grass_tiles_2_163: 616031819018005359
+      grass_tiles_2_34: 3876062108167383866
+      grass_tiles_2_1: 558582799321031458
+      grass_tiles_2_23: -2319446912020976123
+      grass_tiles_2_73: -9097736723808009343
+      grass_tiles_2_62: -4367281223672458732
+      grass_tiles_2_72: 1649662530071874000
+      grass_tiles_2_118: -3663340074686452186
+      grass_tiles_2_20: 2696451062202208398
+      grass_tiles_2_138: 1267958185304982715
+      grass_tiles_2_181: 8010996573899397719
+      grass_tiles_2_21: -3118912742385787703
+      grass_tiles_2_41: 3863868572947325251
+      grass_tiles_2_55: -387357914855263162
+      grass_tiles_2_120: -7060459847655170700
+      grass_tiles_2_30: -6331613190881187937
+      grass_tiles_2_0: -7536564283229069727
+      grass_tiles_2_37: -4704255402515766289
+      grass_tiles_2_26: 1559688286073771768
+      grass_tiles_2_35: 1588291404218539286
+      grass_tiles_2_80: -4370191390687969071
+      grass_tiles_2_31: 6454043095628611035
+      grass_tiles_2_97: -7617945088081280289
+      grass_tiles_2_140: 1861383687315989307
+      grass_tiles_2_173: -8066572074372446934
+      grass_tiles_2_38: -1289539169262421571
+      grass_tiles_2_172: 8617168691776311443
+      grass_tiles_2_78: 1938710239378625044
+      grass_tiles_2_28: 5962916309661145480
+      grass_tiles_2_11: -6977347623995676387
+      grass_tiles_2_107: -1902528769009275501
+      grass_tiles_2_175: -6048115584841910357
+      grass_tiles_2_91: 2589305887703283786
+      grass_tiles_2_105: -1053716966793967477
+      grass_tiles_2_2: 7794025867778672635
+      grass_tiles_2_12: 5852048311554593028
+      grass_tiles_2_68: -364113467910011254
+      grass_tiles_2_87: 8880680430785444212
+      grass_tiles_2_95: 960123151611992547
+      grass_tiles_2_178: -6041534892006466026
+      grass_tiles_2_168: 1412811048188524749
+      grass_tiles_2_39: 4164241353255975839
+      grass_tiles_2_27: 342568028801676569
+      grass_tiles_2_22: -482188837909342065
+      grass_tiles_2_33: -3226642523684785709
+      grass_tiles_2_17: -1578873137581074544
+      grass_tiles_2_51: -3570853529771993392
+      grass_tiles_2_67: 2611516391232798008
+      grass_tiles_2_70: -822446803532396034
+      grass_tiles_2_84: -3532418784376442914
+      grass_tiles_2_69: 597131430629564532
+      grass_tiles_2_42: -6706233429537702810
+      grass_tiles_2_59: 3404898647699892845
+      grass_tiles_2_94: -6477303584975812034
+      grass_tiles_2_75: 1382577204376432309
+      grass_tiles_2_108: 4714896532065289347
+      grass_tiles_2_164: -2589457250839781884
+      grass_tiles_2_114: -8092719470035230006
+      grass_tiles_2_171: 8403123879626118994
+      grass_tiles_2_93: -2356617123273429886
+      grass_tiles_2_90: 2000204683370518242
+      grass_tiles_2_106: -2400841359158511915
+      grass_tiles_2_9: 170423971661643755
+      grass_tiles_2_103: -1440779506785873602
+      grass_tiles_2_183: 5569425176454439059
+      grass_tiles_2_167: 7389500508604229242
+      grass_tiles_2_5: 172496225706153464
+      grass_tiles_2_66: -3332896890873656367
+      grass_tiles_2_45: -1864186131229139910
+      grass_tiles_2_25: -3359901950093612286
+      grass_tiles_2_50: 8077357710778377176
+      grass_tiles_2_119: 223459875196818648
+      grass_tiles_2_151: 1472355001887286730
+      grass_tiles_2_61: -6875558544889996622
+      grass_tiles_2_77: -2412076290611339548
+      grass_tiles_2_180: 4611436702190230626
+      grass_tiles_2_177: 7165895324813685451
+      grass_tiles_2_89: -6565226273288592899
+      grass_tiles_2_162: 4634779312437826385
+      grass_tiles_2_36: -3478645729026976962
+      grass_tiles_2_85: -2131152377879803185
+      grass_tiles_2_32: -5590437725146391556
+      grass_tiles_2_82: -3143436341032159618
+      grass_tiles_2_152: 5136400214472525869
+      grass_tiles_2_148: -5892587881197944610
+      grass_tiles_2_63: -4774028833260723955
+      grass_tiles_2_49: 8181972819124398462
+      grass_tiles_2_71: -5637527647109982255
+      grass_tiles_2_101: 2248183753589156782
+      grass_tiles_2_136: 8838640560939062874
+      grass_tiles_2_98: -2510589400363539440
+      grass_tiles_2_6: 2895630200727110783
+      grass_tiles_2_15: -2304312286147950965
+      grass_tiles_2_46: -7028735113494523464
+      grass_tiles_2_14: 5276857400635156072
+      grass_tiles_2_137: 7865464281781889753
+      grass_tiles_2_58: -6682154769786904508
+      grass_tiles_2_165: 3711824527541352922
+      grass_tiles_2_104: 2674598837366228204
+      grass_tiles_2_141: -6067061649505969145
+      grass_tiles_2_161: 1218234202865114520
+      grass_tiles_2_115: -8353806659348606627
+      grass_tiles_2_13: 3157151925070559528
+      grass_tiles_2_117: 974278781247062365
+      grass_tiles_2_52: -4182989356919378569
+      grass_tiles_2_65: -7626763090830810883
+      grass_tiles_2_3: 2541846975716912389
+      grass_tiles_2_19: -8127727643197254935
+      grass_tiles_2_43: -1778922987096935925
+      grass_tiles_2_88: 5032451666563312148
+      grass_tiles_2_170: -3334008217654336745
+      grass_tiles_2_169: 6297471654416380396
+      grass_tiles_2_166: 6972024678458064809
+      grass_tiles_2_54: 5264593513573834754
+      grass_tiles_2_174: 3777285351122431532
+      grass_tiles_2_160: 2023993831405564548
+      grass_tiles_2_57: -1888650659112673289
+      grass_tiles_2_64: -5627406918963726090
+      grass_tiles_2_53: -6926847767008951446
+      grass_tiles_2_10: -1889426075899358357
+      grass_tiles_2_48: -5990470868493103275
+      grass_tiles_2_179: -3989670233836330
+      grass_tiles_2_185: 5740728971002574580
+      grass_tiles_2_60: -8581058137530150839
+      grass_tiles_2_16: -3248142274195838164
+      grass_tiles_2_7: 6277673185805060943
+      grass_tiles_2_74: 1200987374423009439
+      grass_tiles_2_149: 1662540076192764463
+      grass_tiles_2_76: 7249423216226001743
+      grass_tiles_2_150: -1897025184163452448
+      grass_tiles_2_24: -4940724727930798126
+      grass_tiles_2_102: 2175231252975124073
+      grass_tiles_2_116: -2958310057821046318
+      grass_tiles_2_129: -662132189388610796
+      grass_tiles_2_47: -744072743090591809
+      grass_tiles_2_44: -4751027196822749719
+      grass_tiles_2_92: 6539676905254739647
+      grass_tiles_2_40: -1100716672752148762
+      grass_tiles_2_79: 4854697883709752368
+      grass_tiles_2_176: 6958497777725756360
+      grass_tiles_2_86: 2763071444700227520
+      grass_tiles_2_153: -2029998091497831304
+      grass_tiles_2_100: 6152207289101287378
+      grass_tiles_2_121: -7657440200505540665
+      grass_tiles_2_8: -6146433998904533296
+      grass_tiles_2_81: 6155356853031650484
+      grass_tiles_2_109: 5700768638772366718
+      grass_tiles_2_184: -720433856486043492
+      grass_tiles_2_83: -8502711505336853800
+      grass_tiles_2_182: -1027161845257145493
+      grass_tiles_2_128: 2080595956070391864
+      grass_tiles_2_96: -5832815038847152060
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
