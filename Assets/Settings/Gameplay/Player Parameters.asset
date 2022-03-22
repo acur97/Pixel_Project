@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   test: 1
   speed: 1
-  returnShoot: 1.5
+  returnShootSpeed: 1.5
   returnColor: {r: 0, g: 1, b: 0, a: 1}
+  returnDamageMulti: 1
+  life: 10

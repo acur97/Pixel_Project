@@ -9,6 +9,8 @@ public class PlayerControl : MonoBehaviour
 
     [SerializeField] private PlayerParams parameters;
 
+    private int vida;
+
     [Header("Test")]
     [SerializeField] private Transform cubeTest;
     [SerializeField] private Transform cubeTestEnemy;
@@ -25,8 +27,7 @@ public class PlayerControl : MonoBehaviour
     private Vector2 offset = Vector2.zero;
     private Animator anim;
     private SpriteRenderer Srender;
-    private Transform[] balasL = new Transform[0];
-    private SpriteRenderer[] balaColors = new SpriteRenderer[0];
+    private Bala bl;
 
     private const string _Horizontal = "Horizontal";
     private const string _Vertical = "Vertical";
@@ -40,8 +41,11 @@ public class PlayerControl : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
         manager = InGameManager.Instance;
+        Instance = this;
+
+        vida = parameters.life;
+        manager.CambiarVidaUI(vida);
 
         anim = GetComponent<Animator>();
         Srender = GetComponent<SpriteRenderer>();
@@ -171,22 +175,40 @@ public class PlayerControl : MonoBehaviour
             else
             {
                 balas[i].tag = _JugadorBala;
-                balasL = balas[i].GetComponentsInChildren<Transform>();
-                for (int x = 0; x < balasL.Length; x++)
+                bl = balas[i].GetComponent<Bala>();
+                for (int x = 0; x < bl.transforms.Length; x++)
                 {
-                    balasL[x].gameObject.layer = 11;
+                    bl.transforms[x].gameObject.layer = 11;
                 }
-                //balas[i].layer = 11;
-                balaColors = balas[i].GetComponentsInChildren<SpriteRenderer>();
-                for (int j = 0; j < balaColors.Length; j++)
+                for (int j = 0; j < bl.sprites.Length; j++)
                 {
-                    balaColors[j].color = parameters.returnColor;
+                    bl.sprites[j].color = parameters.returnColor;
                 }
                 balas[i].transform.rotation = pointer.rotation;
-                balas[i].GetComponent<Bala>().speed *= parameters.returnShoot;
+                bl.speed *= parameters.returnShootSpeed;
+                bl.damage *= parameters.returnDamageMulti;
             }
         }
         balas.Clear();
+    }
+
+    public void CambiarVida(int _vida)
+    {
+        vida += _vida;
+
+        if (vida <= 0)
+        {
+            Debug.LogWarning("Muerto");
+            if (!parameters.test)
+            {
+                manager.CambiarVidaUI(0);
+                manager.Morir();
+            }
+        }
+        else
+        {
+            manager.CambiarVidaUI(vida);
+        }
     }
 
     public void Pausa()

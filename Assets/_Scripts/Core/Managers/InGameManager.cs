@@ -8,27 +8,27 @@ public class InGameManager : MonoBehaviour
     public bool InGame = true;
 
     [Space]
+    public GameObject Jugador;
+
+    [Header("UI Canvas")]
+    public GameObject canvas_game;
+    public GameObject canvas_Pausa;
+
+    [Header("Estadisticas")]
     public Text UI_puntos;
     public Text UI_vida;
 
     [Space]
     public int Puntuacion;
-    public int Vida;
 
     [Space]
-    public GameObject Jugador;
     public GameObject ob;
-
-    [Header("UI Canvas")]
-    public GameObject canvas_game;
-    public GameObject canvas_Pausa;
 
     private void Awake()
     {
         Instance = this;
 
         UI_puntos.text = Puntuacion.ToString();
-        UI_vida.text = Vida.ToString();
 
         canvas_game.SetActive(true);
         canvas_Pausa.SetActive(false);
@@ -36,9 +36,7 @@ public class InGameManager : MonoBehaviour
 
     private void Start()
     {
-        InGame = true;
-
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
         ob = FindObjectOfType<GameObject>();
 
         if (ob.name == "[Debug Updater]")
@@ -49,8 +47,9 @@ public class InGameManager : MonoBehaviour
         {
             Debug.LogWarning("No es el primero");
         }
-#endif
+        #endif
 
+        InGame = true;
     }
 
     public void Pausa()
@@ -83,9 +82,14 @@ public class InGameManager : MonoBehaviour
         UI_puntos.text = Puntuacion.ToString();
     }
 
-    public void CambiarVida(int vida)
+    public void CambiarVidaUI(int vida)
     {
-        Vida += vida;
-        UI_vida.text = Vida.ToString();
+        UI_vida.text = vida.ToString();
+    }
+
+    public void Morir()
+    {
+        //canvas_game.SetActive(false);
+        InGame = false;
     }
 }

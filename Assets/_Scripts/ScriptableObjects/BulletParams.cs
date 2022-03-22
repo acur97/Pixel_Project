@@ -11,6 +11,7 @@ public class BulletParams : ScriptableObject
     [Header("Visual")]
     public Color startColor = Color.white;
 
-    [Header("Tiempos")]
+    [Header("Valores")]
     public float deathTime = 5;
+    public int damage = 1;
 }

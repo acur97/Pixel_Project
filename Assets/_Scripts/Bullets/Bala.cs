@@ -3,15 +3,25 @@
 public class Bala : MonoBehaviour
 {
     private InGameManager manager;
+    private PlayerControl pControl;
 
     public float speed = 1;
+    public int damage = 1;
     public float timeDead = 0;
+
+    [Space]
+    public Transform[] transforms;
+    public SpriteRenderer[] sprites;
 
     private const string _JugadorPuntoMuerte = "JugadorPuntoMuerte";
 
     private void Awake()
     {
         manager = InGameManager.Instance;
+        pControl = PlayerControl.Instance;
+
+        transforms = gameObject.GetComponentsInChildren<Transform>();
+        sprites = gameObject.GetComponentsInChildren<SpriteRenderer>();
     }
 
     private void Update()
@@ -37,7 +47,7 @@ public class Bala : MonoBehaviour
     {
         if (collision.CompareTag(_JugadorPuntoMuerte))
         {
-            manager.CambiarVida(-2);
+            pControl.CambiarVida(-damage);
             Morir();
         }
     }

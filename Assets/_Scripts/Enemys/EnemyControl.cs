@@ -3,6 +3,7 @@
 public class EnemyControl : MonoBehaviour
 {
     private InGameManager manager;
+    private PlayerControl pControl;
     private PoolBalas Pbalas;
 
     [SerializeField] private EnemyParams parameters;
@@ -27,7 +28,8 @@ public class EnemyControl : MonoBehaviour
     private void Awake()
     {
         manager = InGameManager.Instance;
-        jugador = PlayerControl.Instance.transform;
+        pControl = PlayerControl.Instance;
+        jugador = pControl.transform;
         Pbalas = PoolBalas.Instance;
 
         colSprt = sprt.color;
@@ -63,7 +65,7 @@ public class EnemyControl : MonoBehaviour
     {
         if (collision.transform.parent.CompareTag(_JugadorBala))
         {
-            vidaV -= 1;
+            vidaV -= collision.transform.parent.GetComponent<Bala>().damage;
             colV -= porcentajeVidas;
             colSprt = new Color32(255, (byte)colV, (byte)colV, 255);
             sprt.color = colSprt;
@@ -78,7 +80,7 @@ public class EnemyControl : MonoBehaviour
 
         if (collision.CompareTag(_JugadorPuntoMuerte))
         {
-            manager.CambiarVida(-4);
+            pControl.CambiarVida(-4);
         }
     }
 }

@@ -9,6 +9,10 @@ public class PlayerParams : ScriptableObject
     public float speed = 1;
 
     [Header("Accion")]
-    public float returnShoot = 1.5f;
+    public float returnShootSpeed = 1.5f;
     public Color returnColor = new Color32(0, 255, 0, 255);
+    public int returnDamageMulti = 1;
+
+    [Header("Vida")]
+    public int life = 10;
 }

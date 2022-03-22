@@ -9,12 +9,12 @@ public class PoolBalas : MonoBehaviour
 
     private Transform root;
     private GameObject[] ob;
-    private SpriteRenderer[] obColors;
     private Bala bl;
     private bool found = false;
 
     private const string rootName = "Balas";
     private const string mas = "Mas pool";
+    private const string _EnemigoBala = "EnemigoBala";
 
     private void Awake()
     {
@@ -45,20 +45,20 @@ public class PoolBalas : MonoBehaviour
         {
             if (!ob[i].activeSelf)
             {
+                ob[i].tag = _EnemigoBala;
                 ob[i].transform.SetPositionAndRotation(Position, Rotation);
-
-                obColors = ob[i].GetComponentsInChildren<SpriteRenderer>();
-                for (int j = 0; j < obColors.Length; j++)
-                {
-                    obColors[j].color = parameters.startColor;
-                }
-
-                ob[i].layer = 12;
-
                 bl = ob[i].GetComponent<Bala>();
+                for (int x = 0; x < bl.transforms.Length; x++)
+                {
+                    bl.transforms[x].gameObject.layer = 12;
+                }
+                for (int j = 0; j < bl.sprites.Length; j++)
+                {
+                    bl.sprites[j].color = parameters.startColor;
+                }
                 bl.speed = speed;
                 bl.timeDead = parameters.deathTime;
-
+                bl.damage = parameters.damage;
                 ob[i].SetActive(true);
 
                 found = true;
