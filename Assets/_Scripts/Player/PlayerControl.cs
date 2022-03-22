@@ -190,6 +190,8 @@ public class PlayerControl : MonoBehaviour
     {
         vida += _vida;
 
+        manager.CambiarVidaUI(vida);
+
         if (vida <= 0)
         {
             Debug.LogWarning("Muerto");
@@ -198,10 +200,6 @@ public class PlayerControl : MonoBehaviour
                 manager.CambiarVidaUI(0);
                 manager.Morir();
             }
-        }
-        else
-        {
-            manager.CambiarVidaUI(vida);
         }
     }
 
