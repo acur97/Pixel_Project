@@ -32,7 +32,6 @@ public class PlayerControl : MonoBehaviour
     private const string _Horizontal = "Horizontal";
     private const string _Vertical = "Vertical";
     private const string _Fire1 = "Fire1";
-    private const string _Cancel = "Cancel";
     private const string _mov_side = "mov_side";
     private const string _mov_up = "mov_up";
     private const string _mov_down = "mov_down";
@@ -72,10 +71,6 @@ public class PlayerControl : MonoBehaviour
             if (Input.GetButtonDown(_Fire1))
             {
                 Accion();
-            }
-            if (Input.GetButtonDown(_Cancel))
-            {
-                Pausa();
             }
 
             transform.Translate(Time.deltaTime * (moves.x * parameters.speed), Time.deltaTime * (moves.y * parameters.speed), 0);
@@ -209,11 +204,6 @@ public class PlayerControl : MonoBehaviour
         {
             manager.CambiarVidaUI(vida);
         }
-    }
-
-    public void Pausa()
-    {
-        manager.Pausa();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

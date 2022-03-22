@@ -24,6 +24,8 @@ public class InGameManager : MonoBehaviour
     [Space]
     public GameObject ob;
 
+    private const string _Cancel = "Cancel";
+
     private void Awake()
     {
         Instance = this;
@@ -50,6 +52,14 @@ public class InGameManager : MonoBehaviour
         #endif
 
         InGame = true;
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown(_Cancel))
+        {
+            Pausa();
+        }
     }
 
     public void Pausa()
