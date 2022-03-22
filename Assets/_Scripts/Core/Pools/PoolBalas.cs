@@ -32,6 +32,7 @@ public class PoolBalas : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             ob[i] = Instantiate(parameters.prefab, Vector3.zero, Quaternion.identity, root);
+            ob[i].name = parameters.name + i;
             ob[i].SetActive(false);
         }
 

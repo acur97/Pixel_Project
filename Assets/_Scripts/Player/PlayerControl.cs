@@ -14,10 +14,13 @@ public class PlayerControl : MonoBehaviour
     [Header("Test")]
     [SerializeField] private Transform cubeTest;
     [SerializeField] private Transform cubeTestEnemy;
+    [SerializeField] private GameObject colliderTest;
 
     [Space]
     [SerializeField] private Transform pointer;
     [SerializeField] private Camera cam;
+    [SerializeField] private Animator anim;
+    [SerializeField] private SpriteRenderer Srender;
 
     [Space]
     public List<GameObject> balas;
@@ -25,8 +28,6 @@ public class PlayerControl : MonoBehaviour
     private Vector3 Mpos = Vector3.zero;
     private Vector2 moves = Vector2.zero;
     private Vector2 offset = Vector2.zero;
-    private Animator anim;
-    private SpriteRenderer Srender;
     private Bala bl;
 
     private const string _Horizontal = "Horizontal";
@@ -45,20 +46,19 @@ public class PlayerControl : MonoBehaviour
 
         vida = parameters.life;
         manager.CambiarVidaUI(vida);
-
-        anim = GetComponent<Animator>();
-        Srender = GetComponent<SpriteRenderer>();
         //pointerTest.GetComponentsInChildren<Transform>()[1].localEulerAngles = new Vector3(-90, 90, 90);
 
         if (parameters.test)
         {
             cubeTest.gameObject.SetActive(true);
             cubeTestEnemy.gameObject.SetActive(true);
+            colliderTest.gameObject.SetActive(true);
         }
         else
         {
             cubeTest.gameObject.SetActive(false);
             cubeTestEnemy.gameObject.SetActive(false);
+            colliderTest.gameObject.SetActive(false);
         }
     }
 
@@ -75,10 +75,7 @@ public class PlayerControl : MonoBehaviour
 
             transform.Translate(Time.deltaTime * (moves.x * parameters.speed), Time.deltaTime * (moves.y * parameters.speed), 0);
         }
-    }
 
-    private void OnWillRenderObject()
-    {
         cam.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
     }
 
@@ -124,18 +121,6 @@ public class PlayerControl : MonoBehaviour
     {
         moves = new Vector2(_x, _y);
 
-        if (moves.y > 0 && moves.x == 0)
-        {
-            anim.SetBool(_mov_side, false);
-            anim.SetBool(_mov_up, true);
-            anim.SetBool(_mov_down, false);
-        }
-        if (moves.y < 0 && moves.x == 0)
-        {
-            anim.SetBool(_mov_side, false);
-            anim.SetBool(_mov_up, false);
-            anim.SetBool(_mov_down, true);
-        }
         if (moves.x > 0)
         {
             anim.SetBool(_mov_side, true);
@@ -143,12 +128,27 @@ public class PlayerControl : MonoBehaviour
             anim.SetBool(_mov_up, false);
             anim.SetBool(_mov_down, false);
         }
-        if (moves.x < 0)
+        else if (moves.x < 0)
         {
             anim.SetBool(_mov_side, true);
             Srender.flipX = true;
             anim.SetBool(_mov_up, false);
             anim.SetBool(_mov_down, false);
+        }
+        else
+        {
+            if (moves.y > 0)
+            {
+                anim.SetBool(_mov_side, false);
+                anim.SetBool(_mov_up, true);
+                anim.SetBool(_mov_down, false);
+            }
+            else
+            {
+                anim.SetBool(_mov_side, false);
+                anim.SetBool(_mov_up, false);
+                anim.SetBool(_mov_down, true);
+            }
         }
         if (moves.x == 0 && moves.y == 0)
         {
@@ -165,7 +165,6 @@ public class PlayerControl : MonoBehaviour
             if (balas[i] == null)
             {
                 balas.RemoveAt(i);
-                //return;
             }
             else
             {

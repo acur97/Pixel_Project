@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Bullet Parameters
   m_EditorClassIdentifier: 
   test: 0
+  name: bala normal
   prefab: {fileID: 1220908916394627493, guid: 795561f010adbe34e84583317fc688e0, type: 3}
   startColor: {r: 1, g: 1, b: 1, a: 1}
   deathTime: 5
+  damage: 1

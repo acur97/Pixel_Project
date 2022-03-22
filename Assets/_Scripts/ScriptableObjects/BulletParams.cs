@@ -6,6 +6,9 @@ public class BulletParams : ScriptableObject
     public bool test = false;
 
     [Space]
+    public new string name;
+
+    [Space]
     public GameObject prefab;
 
     [Header("Visual")]
