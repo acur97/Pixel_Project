@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 1220908916394627495}
   - component: {fileID: 1220908916394627494}
   m_Layer: 8
-  m_Name: Bala
+  m_Name: Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
