@@ -4,11 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - JugadorBarrera
-  - JugadorPuntoMuerte
-  - EnemigoBala
-  - Enemigo
-  - JugadorBala
+  - Enemy
+  - Bullet
+  - PlayerWall
+  - PlayerDeadZone
   layers:
   - Default
   - TransparentFX
@@ -16,13 +15,13 @@ TagManager:
   - 
   - Water
   - UI
+  - Player
+  - Enemy
+  - Bullet
   - 
   - 
-  - Post
-  - Enemigo
-  - Jugador
-  - BalaJugador
-  - BalaEnemigo
+  - 
+  - 
   - 
   - 
   - 

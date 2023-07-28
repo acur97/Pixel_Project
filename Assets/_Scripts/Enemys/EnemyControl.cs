@@ -2,39 +2,42 @@
 
 public class EnemyControl : MonoBehaviour
 {
-    private InGameManager manager;
+    private GameManager manager;
     private PlayerControl pControl;
-    private PoolBalas Pbalas;
+    private PoolBullets pBullets;
 
     [SerializeField] private EnemyParams parameters;
 
     [Space]
+    [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private Transform root;
-    [SerializeField] private SpriteRenderer sprt;
 
     private float shotTime = 0;
     private float stepTime = 0;
     private float speedVal = 0;
 
-    private Transform jugador;
-    private int vidaV;
-    private float porcentajeVidas;
-    private Color32 colSprt;
-    private float colV = 255;
+    private Transform player;
+    private int health;
+    private float healthColor;
+    private Color32 spriteColor;
+    private float colorValue = 255;
 
-    private const string _JugadorBala = "JugadorBala";
-    private const string _JugadorPuntoMuerte = "JugadorPuntoMuerte";
+    private Transform collisionT;
+    private Bullet bullet;
+
+    private const string _Bullet = "Bullet";
+    private const string _PlayerWall = "PlayerWall";
 
     private void Awake()
     {
-        manager = InGameManager.Instance;
+        manager = GameManager.Instance;
         pControl = PlayerControl.Instance;
-        jugador = pControl.transform;
-        Pbalas = PoolBalas.Instance;
+        player = pControl.transform;
+        pBullets = PoolBullets.Instance;
 
-        colSprt = sprt.color;
-        porcentajeVidas = 255 / parameters.life;
-        vidaV = parameters.life;
+        spriteColor = sprite.color;
+        healthColor = 255 / parameters.life;
+        health = parameters.life;
     }
 
     private void Update()
@@ -46,41 +49,49 @@ public class EnemyControl : MonoBehaviour
             {
                 stepTime = 0;
             }
-
             speedVal = parameters.steps.Evaluate(stepTime) * parameters.speed;
 
-            transform.LookAt(jugador, Vector3.forward);
+            transform.LookAt(player, Vector3.forward);
             transform.Translate(0, 0, Time.deltaTime * speedVal);
 
             shotTime += Time.deltaTime * parameters.shootInterval;
             if (shotTime > 1)
             {
                 shotTime = 0;
-                Pbalas.GetBala(root.position, transform.rotation, parameters.shootSpeed);
+                pBullets.SetBullet(root.position, transform.rotation, parameters.shootSpeed, parameters.bulletParams.type);
             }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.parent.CompareTag(_JugadorBala))
-        {
-            vidaV -= collision.transform.parent.GetComponent<Bala>().damage;
-            colV -= porcentajeVidas;
-            colSprt = new Color32(255, (byte)colV, (byte)colV, 255);
-            sprt.color = colSprt;
+        collisionT = collision.transform.parent;
 
-            if (vidaV == 0)
+        if (collisionT.CompareTag(_Bullet))
+        {
+            bullet = PoolBullets.Instance.GetBulletComponent(collisionT.GetInstanceID());
+
+            if (bullet.bulletType == BulletType.PlayerBullet)
             {
-                manager.CambiarPuncuacion(1);
-                collision.transform.parent.gameObject.SetActive(false);
-                Destroy(gameObject);
+                health -= bullet.damage;
+                colorValue -= healthColor * bullet.damage;
+                spriteColor = new Color32(255, (byte)colorValue, (byte)colorValue, 255);
+                sprite.color = spriteColor;
+
+                if (health <= 0)
+                {
+                    manager.ChangePoints(1);
+                    collisionT.gameObject.SetActive(false);
+                    Destroy(gameObject);
+                }
             }
         }
-
-        if (collision.CompareTag(_JugadorPuntoMuerte))
+        else if (collisionT.CompareTag(_PlayerWall))
         {
-            pControl.CambiarVida(-4);
+            pControl.ChangeHealth(-parameters.collisionDamage);
         }
+
+        bullet = null;
+        collisionT = null;
     }
 }

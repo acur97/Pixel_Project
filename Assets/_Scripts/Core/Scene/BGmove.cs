@@ -2,13 +2,21 @@ using UnityEngine;
 
 public class BGmove : MonoBehaviour
 {
-    public Transform player;
-    public Material mat1;
-    public float speed = 0.154321f;
+    private Transform player;
+
+    [SerializeField] private Material material;
+    [SerializeField] private Vector2 speed = new(0.154321f, 0.2777778f);
+
+    private readonly int _Offset = Shader.PropertyToID("_Offset");
+
+    private void Awake()
+    {
+        player = PlayerControl.Instance.transform;
+    }
 
     private void Update()
     {
         transform.position = player.position;
-        mat1.mainTextureOffset = new Vector2(player.position.x * speed, player.position.y * speed);
+        material.SetVector(_Offset, new Vector2(player.position.x * speed.x, player.position.y * speed.y));
     }
 }

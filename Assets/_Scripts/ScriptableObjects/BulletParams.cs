@@ -1,20 +1,18 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Bullet Parameters", menuName = "Scriptable Objects/Bullet Parameters", order = 0)]
+[CreateAssetMenu(fileName = "Bullet Parameters", menuName = "Scriptable Objects/Bullet Parameters", order = 2)]
 public class BulletParams : ScriptableObject
 {
-    public bool test = false;
-
-    [Space]
+    public Bullet prefab;
     public new string name;
-
-    [Space]
-    public GameObject prefab;
 
     [Header("Visual")]
     public Color startColor = Color.white;
 
-    [Header("Valores")]
-    public float deathTime = 5;
+    [Header("Data")]
+    public BulletType type;
     public int damage = 1;
+
+    [Space]
+    public float deathTime = 5;
 }

@@ -5,11 +5,12 @@ public class PlayerControl : MonoBehaviour
 {
     public static PlayerControl Instance { get; private set; }
 
-    private InGameManager manager;
+    private GameManager manager;
+    private Camera cam;
 
     [SerializeField] private PlayerParams parameters;
 
-    private int vida;
+    private int life;
 
     [Header("Test")]
     [SerializeField] private Transform cubeTest;
@@ -18,17 +19,16 @@ public class PlayerControl : MonoBehaviour
 
     [Space]
     [SerializeField] private Transform pointer;
-    [SerializeField] private Camera cam;
     [SerializeField] private Animator anim;
-    [SerializeField] private SpriteRenderer Srender;
+    [SerializeField] private SpriteRenderer sRender;
 
     [Space]
-    public List<GameObject> balas;
+    public List<Bullet> inBullets;
+    private Bullet bl;
 
     private Vector3 Mpos = Vector3.zero;
     private Vector2 moves = Vector2.zero;
     private Vector2 offset = Vector2.zero;
-    private Bala bl;
 
     private const string _Horizontal = "Horizontal";
     private const string _Vertical = "Vertical";
@@ -36,41 +36,40 @@ public class PlayerControl : MonoBehaviour
     private const string _mov_side = "mov_side";
     private const string _mov_up = "mov_up";
     private const string _mov_down = "mov_down";
-    private const string _JugadorBala = "JugadorBala";
-    private const string _EnemigoBala = "EnemigoBala";
 
     private void Awake()
     {
-        manager = InGameManager.Instance;
         Instance = this;
 
-        vida = parameters.life;
-        manager.CambiarVidaUI(vida);
-        //pointerTest.GetComponentsInChildren<Transform>()[1].localEulerAngles = new Vector3(-90, 90, 90);
+        life = parameters.life;
 
         if (parameters.test)
         {
             cubeTest.gameObject.SetActive(true);
             cubeTestEnemy.gameObject.SetActive(true);
-            colliderTest.gameObject.SetActive(true);
+            colliderTest.SetActive(true);
         }
         else
         {
             cubeTest.gameObject.SetActive(false);
             cubeTestEnemy.gameObject.SetActive(false);
-            colliderTest.gameObject.SetActive(false);
+            colliderTest.SetActive(false);
         }
+
+        manager = GameManager.Instance;
+        manager.ChangeHealthUI(life);
+        cam = Camera.main;
     }
 
     private void Update()
     {
         if (manager.InGame)
         {
-            Apuntar();
-            Mover(Input.GetAxis(_Horizontal), Input.GetAxis(_Vertical));
+            Aim();
+            Move(new Vector2(Input.GetAxis(_Horizontal), Input.GetAxis(_Vertical)));
             if (Input.GetButtonDown(_Fire1))
             {
-                Accion();
+                Action();
             }
 
             transform.Translate(Time.deltaTime * (moves.x * parameters.speed), Time.deltaTime * (moves.y * parameters.speed), 0);
@@ -79,7 +78,7 @@ public class PlayerControl : MonoBehaviour
         cam.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
     }
 
-    public void Apuntar()
+    public void Aim()
     {
         Mpos = cam.ScreenToWorldPoint(Input.mousePosition);
         cubeTest.position = new Vector2(Mpos.x, Mpos.y);
@@ -110,6 +109,7 @@ public class PlayerControl : MonoBehaviour
             offset.y = Mathf.Clamp(offset.y, 2, 3);
         }
         //if (offset.x < 2 && offset.x > -2 || offset.y < 2 && offset.y > -2)
+        //if (parameters.test)
         {
             cubeTestEnemy.localPosition = new Vector2(offset.x, offset.y);
         }
@@ -117,21 +117,21 @@ public class PlayerControl : MonoBehaviour
         pointer.LookAt(Mpos, Vector3.forward);
     }
 
-    public void Mover(float _x, float _y)
+    public void Move(Vector2 _moves)
     {
-        moves = new Vector2(_x, _y);
+        moves = _moves;
 
         if (moves.x > 0)
         {
             anim.SetBool(_mov_side, true);
-            Srender.flipX = false;
+            sRender.flipX = false;
             anim.SetBool(_mov_up, false);
             anim.SetBool(_mov_down, false);
         }
         else if (moves.x < 0)
         {
             anim.SetBool(_mov_side, true);
-            Srender.flipX = true;
+            sRender.flipX = true;
             anim.SetBool(_mov_up, false);
             anim.SetBool(_mov_down, false);
         }
@@ -158,56 +158,45 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    public void Accion()
+    public void Action()
     {
-        for (int i = 0; i < balas.Count; i++)
+        for (int i = 0; i < inBullets.Count; i++)
         {
-            if (balas[i] == null)
+            if (inBullets[i] == null)
             {
-                balas.RemoveAt(i);
+                inBullets.RemoveAt(i);
             }
             else
             {
-                balas[i].tag = _JugadorBala;
-                bl = balas[i].GetComponent<Bala>();
-                for (int x = 0; x < bl.transforms.Length; x++)
-                {
-                    bl.transforms[x].gameObject.layer = 11;
-                }
+                inBullets[i].bulletType = BulletType.PlayerBullet;
+                bl = inBullets[i];
                 for (int j = 0; j < bl.sprites.Length; j++)
                 {
                     bl.sprites[j].color = parameters.returnColor;
                 }
-                balas[i].transform.rotation = pointer.rotation;
-                bl.speed *= parameters.returnShootSpeed;
-                bl.damage *= parameters.returnDamageMulti;
+                inBullets[i].transform.rotation = pointer.rotation;
+                bl.speed = parameters.returnShootSpeed;
+                bl.damage = parameters.returnDamage;
+                bl.ResetDeathTime();
             }
         }
-        balas.Clear();
+        inBullets.Clear();
     }
 
-    public void CambiarVida(int _vida)
+    public void ChangeHealth(int health)
     {
-        vida += _vida;
+        life += health;
 
-        manager.CambiarVidaUI(vida);
+        manager.ChangeHealthUI(life);
 
-        if (vida <= 0)
+        if (life <= 0)
         {
             Debug.LogWarning("Muerto");
             if (!parameters.test)
             {
-                manager.CambiarVidaUI(0);
-                manager.Morir();
+                manager.ChangeHealthUI(0);
+                manager.Death();
             }
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.transform.CompareTag(_EnemigoBala))
-        {
-            balas.Remove(collision.gameObject);
         }
     }
 }
