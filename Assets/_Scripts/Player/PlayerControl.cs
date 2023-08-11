@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerControl : MonoBehaviour
 {
     public static PlayerControl Instance { get; private set; }
 
     private GameManager manager;
-    private Camera cam;
 
     [SerializeField] private PlayerParams parameters;
 
@@ -30,9 +30,6 @@ public class PlayerControl : MonoBehaviour
     private Vector2 moves = Vector2.zero;
     private Vector2 offset = Vector2.zero;
 
-    private const string _Horizontal = "Horizontal";
-    private const string _Vertical = "Vertical";
-    private const string _Fire1 = "Fire1";
     private const string _mov_side = "mov_side";
     private const string _mov_up = "mov_up";
     private const string _mov_down = "mov_down";
@@ -55,10 +52,24 @@ public class PlayerControl : MonoBehaviour
             cubeTestEnemy.gameObject.SetActive(false);
             colliderTest.SetActive(false);
         }
+    }
 
+    private void Start()
+    {
         manager = GameManager.Instance;
         manager.ChangeHealthUI(life);
-        cam = Camera.main;
+    }
+
+    public void Fire(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("FIRE !!!");
+            //Debug.LogWarning(context.action.name);
+
+            //Debug.LogWarning(context.action.activeControl.name);
+            //Debug.LogWarning(context.action.activeControl.displayName);
+        }
     }
 
     private void Update()
@@ -66,21 +77,21 @@ public class PlayerControl : MonoBehaviour
         if (manager.InGame)
         {
             Aim();
-            Move(new Vector2(Input.GetAxis(_Horizontal), Input.GetAxis(_Vertical)));
-            if (Input.GetButtonDown(_Fire1))
-            {
-                Action();
-            }
+            //Move(new Vector2(Input.GetAxis(_Horizontal), Input.GetAxis(_Vertical)));
+            //if (Input.GetButtonDown(_Fire1))
+            //{
+            //    Action();
+            //}
 
             transform.Translate(Time.deltaTime * (moves.x * parameters.speed), Time.deltaTime * (moves.y * parameters.speed), 0);
         }
 
-        cam.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
+        //pInput.camera.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
     }
 
     public void Aim()
     {
-        Mpos = cam.ScreenToWorldPoint(Input.mousePosition);
+        //Mpos = pInput.camera.ScreenToWorldPoint(Input.mousePosition);
         cubeTest.position = new Vector2(Mpos.x, Mpos.y);
         pointer.LookAt(cubeTest.position, Vector3.forward);
 

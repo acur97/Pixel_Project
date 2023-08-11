@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -21,7 +22,7 @@ public class GameManager : MonoBehaviour
     [Space]
     [SerializeField] private int score;
 
-    private const string _Cancel = "Cancel";
+    //private const string _Cancel = "Cancel";
 
     private void Awake()
     {
@@ -29,8 +30,8 @@ public class GameManager : MonoBehaviour
 
         UI_score.text = score.ToString();
 
-        canvas_Game.SetActive(true);
         canvas_Pausa.SetActive(false);
+        canvas_Game.SetActive(true);
     }
 
     private void Start()
@@ -38,35 +39,34 @@ public class GameManager : MonoBehaviour
         InGame = true;
     }
 
-    private void Update()
+    public void Pause(InputAction.CallbackContext context)
     {
-        if (Input.GetButtonDown(_Cancel))
+        if (context.performed)
         {
-            Pause();
-        }
-    }
+            if (InGame)
+            {
+                InGame = false;
+                ///Pausado
 
-    public void Pause()
-    {
-        if (InGame)
-        {
-            InGame = false;
-            ///Pausado
+                canvas_Game.SetActive(false);
+                canvas_Pausa.SetActive(true);
 
-            Time.timeScale = 0;
+                InputSystemManager.Instance.pInput.SwitchCurrentActionMap("UI");
 
-            canvas_Game.SetActive(false);
-            canvas_Pausa.SetActive(true);
-        }
-        else
-        {
-            InGame = true;
-            ///Reanudar
+                Time.timeScale = 0;
+            }
+            else
+            {
+                InGame = true;
+                ///Reanudar
 
-            Time.timeScale = 1;
+                canvas_Game.SetActive(true);
+                canvas_Pausa.SetActive(false);
 
-            canvas_Game.SetActive(true);
-            canvas_Pausa.SetActive(false);
+                InputSystemManager.Instance.pInput.SwitchCurrentActionMap("Player");
+
+                Time.timeScale = 1;
+            }
         }
     }
 

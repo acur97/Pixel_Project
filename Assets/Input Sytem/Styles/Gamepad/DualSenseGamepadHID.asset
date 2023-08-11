@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a23ce7781bda9dc4f8da4f5a8ebbfd57, type: 3}
+  m_Name: DualSenseGamepadHID
+  m_EditorClassIdentifier: 
+  leftStick: {fileID: 21300000, guid: fbe555708cab1a641a208d38b8c86ec0, type: 3}
+  rightStick: {fileID: 21300000, guid: 38c69ce786366744d90164ee8e5ae811, type: 3}
+  dpad: {fileID: 21300000, guid: 04f17326e5e9d684281b73757b634d34, type: 3}
+  dpad_up: {fileID: 21300000, guid: f2db7febad9550b48b3e8754dc0974ad, type: 3}
+  dpad_down: {fileID: 21300000, guid: 9db3c37322012724b99b5289829fbb9c, type: 3}
+  dpad_left: {fileID: 21300000, guid: 4e1d96bf63058cf4ea03affbaa7c02a5, type: 3}
+  dpad_right: {fileID: 21300000, guid: ae01e3049c814f04a8080c4b297f82fb, type: 3}
+  buttonNorth: {fileID: 21300000, guid: ae729d91ee2bfb74fa9276d19a1b70a4, type: 3}
+  buttonSouth: {fileID: 21300000, guid: 5cdb535f23e72a947ba3e72fa226b597, type: 3}
+  buttonWest: {fileID: 21300000, guid: d373104472ffcf941a6507daecb82d55, type: 3}
+  buttonEast: {fileID: 21300000, guid: 82b5b4c0d2e99c44a88b8a8a704177ea, type: 3}
+  leftShoulder: {fileID: 21300000, guid: 232741d4fc640224b8afd7e0a6ed02ec, type: 3}
+  rightShoulder: {fileID: 21300000, guid: 9c91eade9f0f0e649a614d84434df19c, type: 3}
+  leftTrigger: {fileID: 21300000, guid: b7f6a0737da234345b4b45792f0b32ec, type: 3}
+  rightTrigger: {fileID: 21300000, guid: 9901ec62c3213e445af3e2093b63199f, type: 3}
+  startButton: {fileID: 21300000, guid: 39db8928411671b44be4ae5b58bb3d0b, type: 3}
+  selectButton: {fileID: 21300000, guid: cc6901a4d4f429547a8bc0eee3d0e520, type: 3}
+  leftStickButton: {fileID: 21300000, guid: 61918bfaaa152d44c97ffa5a2d64780c, type: 3}
+  rightStickButton: {fileID: 21300000, guid: 4e5d99d0ece62ff489d91de9cc366806, type: 3}

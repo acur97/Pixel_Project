@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b24a9f7f4cdee340bd2f712d363589e, type: 3}
+  m_Name: KeyboardMouse
+  m_EditorClassIdentifier: 
+  enter: {fileID: 21300000, guid: da8ee367114948542b6c9284fa3084c0, type: 3}
+  normal: {fileID: 21300000, guid: 2dc29aad1d8e661429545bfdcdaeb392, type: 3}
+  superWide: {fileID: 21300000, guid: 1cb59e35c6102dd47ab6685af6c7870e, type: 3}
+  tall: {fileID: 21300000, guid: aff2efd403373cf488c56e31cd495e5d, type: 3}
+  wide: {fileID: 21300000, guid: 0f831a5c9f2686d4b93bf4a1ab913b50, type: 3}
+  mouse: {fileID: 21300000, guid: 6725ca377e4c01846a69e17cdc82bba2, type: 3}
+  mouseLeft: {fileID: 21300000, guid: edd04d91f7929b042911a3f9b04497cf, type: 3}
+  mouseMiddle: {fileID: 21300000, guid: 3db0bcd549943174ebb596db31f74ffb, type: 3}
+  mouseRight: {fileID: 21300000, guid: c93cb370c3aaa4e4e9ec032856916203, type: 3}

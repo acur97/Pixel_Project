@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a23ce7781bda9dc4f8da4f5a8ebbfd57, type: 3}
+  m_Name: XInputController
+  m_EditorClassIdentifier: 
+  leftStick: {fileID: 21300000, guid: 458ef95c76f858e45820d1387d2a82ca, type: 3}
+  rightStick: {fileID: 21300000, guid: 8974f8e209e7bdd4c86ed2cbb7ded3a4, type: 3}
+  dpad: {fileID: 21300000, guid: 110c8f2eaa7fdd8429f5d585b9ec77a7, type: 3}
+  dpad_up: {fileID: 21300000, guid: f5968ded39c2d7241acf7cde1f27a9e8, type: 3}
+  dpad_down: {fileID: 21300000, guid: b216ee572873185419886622ce60d450, type: 3}
+  dpad_left: {fileID: 21300000, guid: e8976456858b85b4ea369b8af90ef49c, type: 3}
+  dpad_right: {fileID: 21300000, guid: 7ead244bbc5ce4c4e93631db15258826, type: 3}
+  buttonNorth: {fileID: 21300000, guid: e66894951ab056e47892be6e373d96ab, type: 3}
+  buttonSouth: {fileID: 21300000, guid: 7caced097f9e2d649b8af3ef216783b3, type: 3}
+  buttonWest: {fileID: 21300000, guid: 31f5a772395fb8a4abde732095fb9ca6, type: 3}
+  buttonEast: {fileID: 21300000, guid: 378f63373f2c81f4f842892573d0afde, type: 3}
+  leftShoulder: {fileID: 21300000, guid: d3cc1e62b890bc14f8a7374c80237b7b, type: 3}
+  rightShoulder: {fileID: 21300000, guid: 4a71ee7061f457448813419531e3fc44, type: 3}
+  leftTrigger: {fileID: 21300000, guid: 2b7b94b003132e845a90e7ef999e71e8, type: 3}
+  rightTrigger: {fileID: 21300000, guid: 1aad751b4d29b8a489deaf91bccc92b6, type: 3}
+  startButton: {fileID: 21300000, guid: da9695748ce859d4a8ade1e7e7967a03, type: 3}
+  selectButton: {fileID: 21300000, guid: a1af4f56b6f70ac489e80fbcb5d39fbf, type: 3}
+  leftStickButton: {fileID: 21300000, guid: cb2f53459eab4404594b6991daa9c7a5, type: 3}
+  rightStickButton: {fileID: 21300000, guid: 4d27ac7b3de0c0b4f843a4399ce88223, type: 3}

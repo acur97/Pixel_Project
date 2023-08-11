@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c13afedf6fc91864eb4ee7c9581a556d, type: 3}
+  m_Name: Joystick
+  m_EditorClassIdentifier: 
+  stick: {fileID: 21300000, guid: 970c8c69d6cbddc44b38876c2230cef1, type: 3}
+  hat: {fileID: 21300000, guid: c39da008eb1cfe64986ac6ae6da7956d, type: 3}
+  hat_up: {fileID: 21300000, guid: e9b6d097bb262334eaaa59ed74eea103, type: 3}
+  hat_down: {fileID: 21300000, guid: d756f057bb4593b4cb65121914ed0c5b, type: 3}
+  hat_left: {fileID: 21300000, guid: 868303f33398b8146a3f83fa3182f997, type: 3}
+  hat_right: {fileID: 21300000, guid: 50c4c394c27a3124eab4db0aa2316383, type: 3}
+  trigger: {fileID: 21300000, guid: 26eb49cb40d80784da6333b87659a16a, type: 3}
+  button: {fileID: 21300000, guid: a883fc56aa883494da65eae175122389, type: 3}

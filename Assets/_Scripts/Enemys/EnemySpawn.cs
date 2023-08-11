@@ -55,10 +55,10 @@ public class EnemySpawn : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            InstanciarOleadaBordes();
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    InstanciarOleadaBordes();
+        //}
     }
 
     public void InstanciarOleadaBordes()
