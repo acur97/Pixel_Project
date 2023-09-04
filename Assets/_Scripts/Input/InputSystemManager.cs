@@ -1,15 +1,14 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.DualShock;
 using UnityEngine.InputSystem.Switch;
-using UnityEngine.InputSystem.Utilities;
 using UnityEngine.InputSystem.XInput;
 
 public class InputSystemManager : MonoBehaviour
 {
     public static InputSystemManager Instance { get; private set; }
 
+    [SerializeField] private bool testInUpdateNames = false;
     public PlayerInput pInput;
 
     private void Awake()
@@ -84,47 +83,50 @@ public class InputSystemManager : MonoBehaviour
 
     private void Update()
     {
-        switch (pInput.currentControlScheme)
+        if (testInUpdateNames)
         {
-            case "Keyboard&Mouse":
-                if (Keyboard.current.anyKey.wasPressedThisFrame)
-                {
-                    for (int i = 0; i < Keyboard.current.allKeys.Count; i++)
+            switch (pInput.currentControlScheme)
+            {
+                case "Keyboard&Mouse":
+                    if (Keyboard.current.anyKey.wasPressedThisFrame)
                     {
-                        if (Keyboard.current.allKeys[i].IsActuated())
+                        for (int i = 0; i < Keyboard.current.allKeys.Count; i++)
                         {
-                            Debug.LogWarning(Keyboard.current.allKeys[i].name);
+                            if (Keyboard.current.allKeys[i].IsActuated())
+                            {
+                                Debug.LogWarning(Keyboard.current.allKeys[i].name);
+                            }
                         }
                     }
-                }
-                //for (int i = 0; i < Mouse.current.allControls.Count; i++)
-                //{
-                //    if (Mouse.current.allControls[i].tr())
-                //    {
-                //        Debug.LogWarning(Mouse.current.allControls[i].displayName);
-                //    }
-                //}
-                break;
+                    //for (int i = 0; i < Mouse.current.allControls.Count; i++)
+                    //{
+                    //    if (Mouse.current.allControls[i].tr())
+                    //    {
+                    //        Debug.LogWarning(Mouse.current.allControls[i].displayName);
+                    //    }
+                    //}
+                    break;
 
-            case "Gamepad":
-                for (int i = 0; i < Gamepad.current.allControls.Count; i++)
-                {
-                    if (Gamepad.current.allControls[i].IsActuated())
+                case "Gamepad":
+                    for (int i = 0; i < Gamepad.current.allControls.Count; i++)
                     {
-                        Debug.LogWarning(Gamepad.current.allControls[i].name);
+                        if (Gamepad.current.allControls[i].IsActuated())
+                        {
+                            Debug.LogWarning(Gamepad.current.allControls[i].name);
+                        }
                     }
-                }
-                break;
+                    break;
 
-            case "Joystick":
-                for (int i = 0; i < Joystick.current.allControls.Count; i++)
-                {
-                    if (Joystick.current.allControls[i].IsActuated())
+                case "Joystick":
+                    for (int i = 0; i < Joystick.current.allControls.Count; i++)
                     {
-                        Debug.LogWarning(Joystick.current.allControls[i].name);
+                        if (Joystick.current.allControls[i].IsActuated())
+                        {
+                            Debug.LogWarning(Joystick.current.allControls[i].name);
+                        }
                     }
-                }
-                break;
+                    break;
+            }
         }
     }
 }

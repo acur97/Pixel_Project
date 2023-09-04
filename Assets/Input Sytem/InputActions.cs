@@ -191,15 +191,37 @@ namespace UnityEngine.InputSystem
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""32cadc84-a072-4676-ba8c-216c105b1bc9"",
-                    ""path"": ""*/{Hatswitch}"",
+                    ""name"": ""Right Stick Joystick"",
+                    ""id"": ""53e4f1dc-9360-48a7-88af-ca300b7031c2"",
+                    ""path"": ""2DVector(mode=2)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""4f073d61-5fe5-4aac-8d85-a20d2a4652ef"",
+                    ""path"": ""<Joystick>/rz"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Joystick"",
                     ""action"": ""Look"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""305f0e97-5a5c-4ea7-85b4-84e92f0bf533"",
+                    ""path"": ""<Joystick>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Joystick"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",

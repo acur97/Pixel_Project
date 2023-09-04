@@ -60,6 +60,22 @@ public class PlayerControl : MonoBehaviour
         manager.ChangeHealthUI(life);
     }
 
+    public void Move(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.LogWarning(context.ReadValue<Vector2>());
+        }
+    }
+
+    public void Look(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.LogWarning(context.ReadValue<Vector2>());
+        }
+    }
+
     public void Fire(InputAction.CallbackContext context)
     {
         if (context.performed)
